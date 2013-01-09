@@ -1,0 +1,1001 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://apiconnector.com" elementFormDefault="qualified" targetNamespace="http://apiconnector.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://apiconnector.com/v2/api.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://apiconnector.com/v2/api.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ApiContact">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OptInType" type="tns:ApiContactOptInTypes" />
+      <xs:element minOccurs="0" name="EmailType" type="tns:ApiContactEmailTypes" />
+      <xs:element minOccurs="0" name="DataFields" nillable="true" type="tns:ArrayOfApiContactData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiContact" nillable="true" type="tns:ApiContact" />
+  <xs:simpleType name="ApiContactOptInTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotAvailableInThisVersion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Unknown">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Single">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Double">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="VerifiedDouble">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApiContactOptInTypes" nillable="true" type="tns:ApiContactOptInTypes" />
+  <xs:simpleType name="ApiContactEmailTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotAvailableInThisVersion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PlainText">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Html">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApiContactEmailTypes" nillable="true" type="tns:ApiContactEmailTypes" />
+  <xs:complexType name="ArrayOfApiContactData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiContactData" nillable="true" type="tns:ApiContactData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiContactData" nillable="true" type="tns:ArrayOfApiContactData" />
+  <xs:complexType name="ApiContactData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiContactData" nillable="true" type="tns:ApiContactData" />
+  <xs:simpleType name="ApiContactStatuses">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotAvailableInThisVersion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Subscribed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Unsubscribed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SoftBounced">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="HardBounced">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="IspComplained">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MailBlocked">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PendingOptIn">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DirectComplaint">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Deleted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SharedSuppression">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Suppressed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NotAllowed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DomainSuppression">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">100</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NoMxRecord">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">255</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApiContactStatuses" nillable="true" type="tns:ApiContactStatuses" />
+  <xs:complexType name="ArrayOfApiAddressBook">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiAddressBook" nillable="true" type="tns:ApiAddressBook" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiAddressBook" nillable="true" type="tns:ArrayOfApiAddressBook" />
+  <xs:complexType name="ApiAddressBook">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Visibility" type="tns:ApiAddressBookVisibility" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiAddressBook" nillable="true" type="tns:ApiAddressBook" />
+  <xs:simpleType name="ApiAddressBookVisibility">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotAvailableInThisVersion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Private">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Public">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApiAddressBookVisibility" nillable="true" type="tns:ApiAddressBookVisibility" />
+  <xs:complexType name="ArrayOfApiContact">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiContact" nillable="true" type="tns:ApiContact" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiContact" nillable="true" type="tns:ArrayOfApiContact" />
+  <xs:complexType name="ApiContactResubscription">
+    <xs:sequence>
+      <xs:element name="UnsubscribedContact" nillable="true" type="tns:ApiContact" />
+      <xs:element name="PreferredLocale" nillable="true" type="xs:string" />
+      <xs:element name="ReturnUrlToUseIfChallenged" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiContactResubscription" nillable="true" type="tns:ApiContactResubscription" />
+  <xs:simpleType name="ApiResubscribeResult">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotAvailableInThisVersion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ContactAdded">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ContactChallenged">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ContactCannotBeUnsuppressed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApiResubscribeResult" nillable="true" type="tns:ApiResubscribeResult" />
+  <xs:complexType name="ArrayOfApiContactSuppression">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiContactSuppression" nillable="true" type="tns:ApiContactSuppression" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiContactSuppression" nillable="true" type="tns:ArrayOfApiContactSuppression" />
+  <xs:complexType name="ApiContactSuppression">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SuppressedContact" nillable="true" type="tns:ApiContact" />
+      <xs:element minOccurs="0" name="DateRemoved" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Reason" type="tns:ApiContactStatuses" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiContactSuppression" nillable="true" type="tns:ApiContactSuppression" />
+  <xs:complexType name="ApiContactImport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Status" type="tns:ApiContactImportStatuses" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiContactImport" nillable="true" type="tns:ApiContactImport" />
+  <xs:simpleType name="ApiContactImportStatuses">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotAvailableInThisVersion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Finished" />
+      <xs:enumeration value="NotFinished" />
+      <xs:enumeration value="RejectedByWatchdog" />
+      <xs:enumeration value="InvalidFileFormat" />
+      <xs:enumeration value="ExceedsAllowedContactLimit">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Unknown">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Failed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApiContactImportStatuses" nillable="true" type="tns:ApiContactImportStatuses" />
+  <xs:complexType name="ApiContactImportReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NewContacts" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedContacts" type="xs:int" />
+      <xs:element minOccurs="0" name="GloballySuppressed" type="xs:int" />
+      <xs:element minOccurs="0" name="InvalidEntries" type="xs:int" />
+      <xs:element minOccurs="0" name="DuplicateEmails" type="xs:int" />
+      <xs:element minOccurs="0" name="Blocked" type="xs:int" />
+      <xs:element minOccurs="0" name="Unsubscribed" type="xs:int" />
+      <xs:element minOccurs="0" name="HardBounced" type="xs:int" />
+      <xs:element minOccurs="0" name="SoftBounced" type="xs:int" />
+      <xs:element minOccurs="0" name="IspComplaints" type="xs:int" />
+      <xs:element minOccurs="0" name="MailBlocked" type="xs:int" />
+      <xs:element minOccurs="0" name="DomainSuppressed" type="xs:int" />
+      <xs:element minOccurs="0" name="PendingDoubleOptin" type="xs:int" />
+      <xs:element minOccurs="0" name="Failures" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiContactImportReport" nillable="true" type="tns:ApiContactImportReport" />
+  <xs:complexType name="ArrayOfApiImageFolder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiImageFolder" nillable="true" type="tns:ApiImageFolder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiImageFolder" nillable="true" type="tns:ArrayOfApiImageFolder" />
+  <xs:complexType name="ApiImageFolder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentFolderId" type="xs:int" />
+      <xs:element minOccurs="0" name="ChildFolders" nillable="true" type="tns:ArrayOfApiImageFolder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiImageFolder" nillable="true" type="tns:ApiImageFolder" />
+  <xs:complexType name="ApiImage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentFolderId" type="xs:int" />
+      <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiImage" nillable="true" type="tns:ApiImage" />
+  <xs:complexType name="ApiCampaign">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="Subject" nillable="true" type="xs:string" />
+      <xs:element name="FromName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromAddress" nillable="true" type="tns:ApiCampaignFromAddress" />
+      <xs:element name="HtmlContent" nillable="true" type="xs:string" />
+      <xs:element name="PlainTextContent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReplyAction" type="tns:ApiCampaignReplyActions" />
+      <xs:element minOccurs="0" name="ReplyToAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSplitTest" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Status" type="tns:ApiCampaignStatuses" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiCampaign" nillable="true" type="tns:ApiCampaign" />
+  <xs:complexType name="ApiCampaignFromAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiCampaignFromAddress" nillable="true" type="tns:ApiCampaignFromAddress" />
+  <xs:simpleType name="ApiCampaignReplyActions">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotAvailableInThisVersion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Unset">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WebMailForward">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Webmail">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Delete">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApiCampaignReplyActions" nillable="true" type="tns:ApiCampaignReplyActions" />
+  <xs:simpleType name="ApiCampaignStatuses">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotAvailableInThisVersion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Unsent">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Sending" />
+      <xs:enumeration value="Sent" />
+      <xs:enumeration value="Paused" />
+      <xs:enumeration value="Cancelled" />
+      <xs:enumeration value="RequiresSystemApproval" />
+      <xs:enumeration value="RequiresSMSApproval" />
+      <xs:enumeration value="RequiresWorkflowApproval" />
+      <xs:enumeration value="Triggered">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2147483647</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApiCampaignStatuses" nillable="true" type="tns:ApiCampaignStatuses" />
+  <xs:complexType name="ArrayOfApiCampaign">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiCampaign" nillable="true" type="tns:ApiCampaign" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiCampaign" nillable="true" type="tns:ArrayOfApiCampaign" />
+  <xs:complexType name="ApiCampaignSend">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element name="CampaignId" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AddressBookIds" nillable="true" type="q1:ArrayOfint" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ContactIds" nillable="true" type="q2:ArrayOfint" />
+      <xs:element minOccurs="0" name="SendDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SplitTestOptions" nillable="true" type="tns:ApiSplitTestSendOptions" />
+      <xs:element minOccurs="0" name="Status" type="tns:ApiCampaignSendStatuses" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiCampaignSend" nillable="true" type="tns:ApiCampaignSend" />
+  <xs:complexType name="ApiSplitTestSendOptions">
+    <xs:sequence>
+      <xs:element name="TestMetric" type="tns:ApiSplitTestMetrics" />
+      <xs:element name="TestPercentage" type="xs:int" />
+      <xs:element name="TestPeriodHours" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiSplitTestSendOptions" nillable="true" type="tns:ApiSplitTestSendOptions" />
+  <xs:simpleType name="ApiSplitTestMetrics">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotAvailableInThisVersion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Opens" />
+      <xs:enumeration value="Clicks" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApiSplitTestMetrics" nillable="true" type="tns:ApiSplitTestMetrics" />
+  <xs:simpleType name="ApiCampaignSendStatuses">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotAvailableInThisVersion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NotSent">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Scheduled">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Sending">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Sent">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Cancelled">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApiCampaignSendStatuses" nillable="true" type="tns:ApiCampaignSendStatuses" />
+  <xs:complexType name="ApiCampaignSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateSent" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NumUniqueOpens" type="xs:int" />
+      <xs:element minOccurs="0" name="NumUniqueTextOpens" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTotalUniqueOpens" type="xs:int" />
+      <xs:element minOccurs="0" name="NumOpens" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTextOpens" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTotalOpens" type="xs:int" />
+      <xs:element minOccurs="0" name="NumClicks" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTextClicks" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTotalClicks" type="xs:int" />
+      <xs:element minOccurs="0" name="NumPageViews" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTotalPageViews" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTextPageViews" type="xs:int" />
+      <xs:element minOccurs="0" name="NumForwards" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTextForwards" type="xs:int" />
+      <xs:element minOccurs="0" name="NumEstimatedForwards" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTextEstimatedForwards" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTotalEstimatedForwards" type="xs:int" />
+      <xs:element minOccurs="0" name="NumReplies" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTextReplies" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTotalReplies" type="xs:int" />
+      <xs:element minOccurs="0" name="NumHardBounces" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTextHardBounces" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTotalHardBounces" type="xs:int" />
+      <xs:element minOccurs="0" name="NumSoftBounces" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTextSoftBounces" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTotalSoftBounces" type="xs:int" />
+      <xs:element minOccurs="0" name="NumUnsubscribes" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTextUnsubscribes" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTotalUnsubscribes" type="xs:int" />
+      <xs:element minOccurs="0" name="NumIspComplaints" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTextIspComplaints" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTotalIspComplaints" type="xs:int" />
+      <xs:element minOccurs="0" name="NumMailBlocks" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTextMailBlocks" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTotalMailBlocks" type="xs:int" />
+      <xs:element minOccurs="0" name="NumSent" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTextSent" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTotalSent" type="xs:int" />
+      <xs:element minOccurs="0" name="NumRecipientsClicked" type="xs:int" />
+      <xs:element minOccurs="0" name="NumDelivered" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTextDelivered" type="xs:int" />
+      <xs:element minOccurs="0" name="NumTotalDelivered" type="xs:int" />
+      <xs:element minOccurs="0" name="PercentageDelivered" type="xs:double" />
+      <xs:element minOccurs="0" name="PercentageUniqueOpens" type="xs:double" />
+      <xs:element minOccurs="0" name="PercentageOpens" type="xs:double" />
+      <xs:element minOccurs="0" name="PercentageUnsubscribes" type="xs:double" />
+      <xs:element minOccurs="0" name="PercentageReplies" type="xs:double" />
+      <xs:element minOccurs="0" name="PercentageHardBounces" type="xs:double" />
+      <xs:element minOccurs="0" name="PercentageSoftBounces" type="xs:double" />
+      <xs:element minOccurs="0" name="PercentageUsersClicked" type="xs:double" />
+      <xs:element minOccurs="0" name="PercentageClicksToOpens" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiCampaignSummary" nillable="true" type="tns:ApiCampaignSummary" />
+  <xs:complexType name="ApiCampaignContactSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactId" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumOpens" type="xs:int" />
+      <xs:element minOccurs="0" name="NumPageViews" type="xs:int" />
+      <xs:element minOccurs="0" name="NumClicks" type="xs:int" />
+      <xs:element minOccurs="0" name="NumForwards" type="xs:int" />
+      <xs:element minOccurs="0" name="NumEstimatedForwards" type="xs:int" />
+      <xs:element minOccurs="0" name="NumReplies" type="xs:int" />
+      <xs:element minOccurs="0" name="DateSent" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateFirstOpened" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateLastOpened" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstOpenIp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Unsubscribed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SoftBounced" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HardBounced" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiCampaignContactSummary" nillable="true" type="tns:ApiCampaignContactSummary" />
+  <xs:complexType name="ArrayOfApiCampaignContactSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiCampaignContactSummary" nillable="true" type="tns:ApiCampaignContactSummary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiCampaignContactSummary" nillable="true" type="tns:ArrayOfApiCampaignContactSummary" />
+  <xs:complexType name="ArrayOfApiCampaignContactClick">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiCampaignContactClick" nillable="true" type="tns:ApiCampaignContactClick" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiCampaignContactClick" nillable="true" type="tns:ArrayOfApiCampaignContactClick" />
+  <xs:complexType name="ApiCampaignContactClick">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactId" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IpAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserAgent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateClicked" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Keyword" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiCampaignContactClick" nillable="true" type="tns:ApiCampaignContactClick" />
+  <xs:complexType name="ArrayOfApiCampaignContactOpen">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiCampaignContactOpen" nillable="true" type="tns:ApiCampaignContactOpen" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiCampaignContactOpen" nillable="true" type="tns:ArrayOfApiCampaignContactOpen" />
+  <xs:complexType name="ApiCampaignContactOpen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactId" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MailClient" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MailClientVersion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IpAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserAgent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsHtml" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsForward" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DateOpened" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiCampaignContactOpen" nillable="true" type="tns:ApiCampaignContactOpen" />
+  <xs:complexType name="ArrayOfApiCampaignContactPageView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiCampaignContactPageView" nillable="true" type="tns:ApiCampaignContactPageView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiCampaignContactPageView" nillable="true" type="tns:ArrayOfApiCampaignContactPageView" />
+  <xs:complexType name="ApiCampaignContactPageView">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactId" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateViewed" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiCampaignContactPageView" nillable="true" type="tns:ApiCampaignContactPageView" />
+  <xs:complexType name="ArrayOfApiCampaignContactReply">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiCampaignContactReply" nillable="true" type="tns:ApiCampaignContactReply" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiCampaignContactReply" nillable="true" type="tns:ArrayOfApiCampaignContactReply" />
+  <xs:complexType name="ApiCampaignContactReply">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactId" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsHtml" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DateReplied" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ReplyType" type="tns:ApiCampaignReplyTypes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiCampaignContactReply" nillable="true" type="tns:ApiCampaignContactReply" />
+  <xs:simpleType name="ApiCampaignReplyTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotAvailableInThisVersion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Reply" />
+      <xs:enumeration value="AutoReply" />
+      <xs:enumeration value="ChallengeResponse" />
+      <xs:enumeration value="Unsafe" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApiCampaignReplyTypes" nillable="true" type="tns:ApiCampaignReplyTypes" />
+  <xs:complexType name="ArrayOfApiCampaignContactSocialBookmarkView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiCampaignContactSocialBookmarkView" nillable="true" type="tns:ApiCampaignContactSocialBookmarkView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiCampaignContactSocialBookmarkView" nillable="true" type="tns:ArrayOfApiCampaignContactSocialBookmarkView" />
+  <xs:complexType name="ApiCampaignContactSocialBookmarkView">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactId" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BookmarkName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumViews" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiCampaignContactSocialBookmarkView" nillable="true" type="tns:ApiCampaignContactSocialBookmarkView" />
+  <xs:complexType name="ArrayOfApiCampaignContactRoiDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiCampaignContactRoiDetail" nillable="true" type="tns:ApiCampaignContactRoiDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiCampaignContactRoiDetail" nillable="true" type="tns:ArrayOfApiCampaignContactRoiDetail" />
+  <xs:complexType name="ApiCampaignContactRoiDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactId" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MarkerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataType" type="tns:ApiRoiDetailDataTypes" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="DateEntered" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiCampaignContactRoiDetail" nillable="true" type="tns:ApiCampaignContactRoiDetail" />
+  <xs:simpleType name="ApiRoiDetailDataTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotAvailableInThisVersion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="String" />
+      <xs:enumeration value="Numeric" />
+      <xs:enumeration value="Date" />
+      <xs:enumeration value="Boolean" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApiRoiDetailDataTypes" nillable="true" type="tns:ApiRoiDetailDataTypes" />
+  <xs:complexType name="ArrayOfApiDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiDocument" nillable="true" type="tns:ApiDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiDocument" nillable="true" type="tns:ArrayOfApiDocument" />
+  <xs:complexType name="ApiDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileSize" type="xs:int" />
+      <xs:element minOccurs="0" name="DateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateModified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiDocument" nillable="true" type="tns:ApiDocument" />
+  <xs:complexType name="ArrayOfApiDocumentFolder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiDocumentFolder" nillable="true" type="tns:ApiDocumentFolder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiDocumentFolder" nillable="true" type="tns:ArrayOfApiDocumentFolder" />
+  <xs:complexType name="ApiDocumentFolder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ParentId" type="xs:int" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChildFolders" nillable="true" type="tns:ArrayOfApiDocumentFolder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiDocumentFolder" nillable="true" type="tns:ApiDocumentFolder" />
+  <xs:complexType name="ArrayOfApiCampaignFromAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiCampaignFromAddress" nillable="true" type="tns:ApiCampaignFromAddress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiCampaignFromAddress" nillable="true" type="tns:ArrayOfApiCampaignFromAddress" />
+  <xs:complexType name="ApiSms">
+    <xs:sequence>
+      <xs:element name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiSms" nillable="true" type="tns:ApiSms" />
+  <xs:complexType name="ApiTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="Subject" nillable="true" type="xs:string" />
+      <xs:element name="FromName" nillable="true" type="xs:string" />
+      <xs:element name="HtmlContent" nillable="true" type="xs:string" />
+      <xs:element name="PlainTextContent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReplyAction" type="tns:ApiCampaignReplyActions" />
+      <xs:element minOccurs="0" name="ReplyToAddress" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiTemplate" nillable="true" type="tns:ApiTemplate" />
+  <xs:complexType name="ArrayOfApiTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiTemplate" nillable="true" type="tns:ApiTemplate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiTemplate" nillable="true" type="tns:ArrayOfApiTemplate" />
+  <xs:complexType name="ApiDataField">
+    <xs:sequence>
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:ApiDataTypes" />
+      <xs:element minOccurs="0" name="Visibility" type="tns:ApiDataFieldVisibility" />
+      <xs:element minOccurs="0" name="DefaultValue" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiDataField" nillable="true" type="tns:ApiDataField" />
+  <xs:simpleType name="ApiDataTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotAvailableInThisVersion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="String" />
+      <xs:enumeration value="Numeric" />
+      <xs:enumeration value="Date" />
+      <xs:enumeration value="Boolean" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApiDataTypes" nillable="true" type="tns:ApiDataTypes" />
+  <xs:simpleType name="ApiDataFieldVisibility">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotAvailableInThisVersion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Private">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Public">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApiDataFieldVisibility" nillable="true" type="tns:ApiDataFieldVisibility" />
+  <xs:complexType name="ApiDependencyResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Dependencies" nillable="true" type="tns:ArrayOfApiDependency" />
+      <xs:element minOccurs="0" name="Result" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiDependencyResult" nillable="true" type="tns:ApiDependencyResult" />
+  <xs:complexType name="ArrayOfApiDependency">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiDependency" nillable="true" type="tns:ApiDependency" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiDependency" nillable="true" type="tns:ArrayOfApiDependency" />
+  <xs:complexType name="ApiDependency">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Type" type="tns:ApiBusinessObjectType" />
+      <xs:element minOccurs="0" name="ObjectId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiDependency" nillable="true" type="tns:ApiDependency" />
+  <xs:simpleType name="ApiBusinessObjectType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotAvailableInThisVersion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Campaign" />
+      <xs:enumeration value="Survey" />
+      <xs:enumeration value="MicrositePage" />
+      <xs:enumeration value="DynamicContent" />
+      <xs:enumeration value="ContactLabel" />
+      <xs:enumeration value="SurveyQuestion" />
+      <xs:enumeration value="AddressBook" />
+      <xs:enumeration value="DynamicContentRule" />
+      <xs:enumeration value="CampaignLink" />
+      <xs:enumeration value="CampaignTemplate" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApiBusinessObjectType" nillable="true" type="tns:ApiBusinessObjectType" />
+  <xs:complexType name="ArrayOfApiDataField">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiDataField" nillable="true" type="tns:ApiDataField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiDataField" nillable="true" type="tns:ArrayOfApiDataField" />
+  <xs:complexType name="ApiAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Properties" nillable="true" type="tns:ArrayOfApiAccountProperty" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiAccount" nillable="true" type="tns:ApiAccount" />
+  <xs:complexType name="ArrayOfApiAccountProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiAccountProperty" nillable="true" type="tns:ApiAccountProperty" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiAccountProperty" nillable="true" type="tns:ArrayOfApiAccountProperty" />
+  <xs:complexType name="ApiAccountProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiAccountProperty" nillable="true" type="tns:ApiAccountProperty" />
+  <xs:complexType name="ApiTransactionalData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactIdentifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Json" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiTransactionalData" nillable="true" type="tns:ApiTransactionalData" />
+  <xs:complexType name="ArrayOfApiTransactionalData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiTransactionalData" nillable="true" type="tns:ApiTransactionalData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiTransactionalData" nillable="true" type="tns:ArrayOfApiTransactionalData" />
+  <xs:simpleType name="ApiTransactionalDataImportStatuses">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotStarted" />
+      <xs:enumeration value="NotFinished" />
+      <xs:enumeration value="Finished" />
+      <xs:enumeration value="Failed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApiTransactionalDataImportStatuses" nillable="true" type="tns:ApiTransactionalDataImportStatuses" />
+</xs:schema>

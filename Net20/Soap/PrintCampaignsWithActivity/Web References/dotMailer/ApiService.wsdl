@@ -1,0 +1,2816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://apiconnector.com/v2" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ApiService" targetNamespace="http://apiconnector.com/v2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="Secure_ApiService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://apiconnector.com/v2/Imports">
+      <xsd:import schemaLocation="https://apiconnector.com/v2/api.svc?xsd=xsd0" namespace="http://apiconnector.com/v2" />
+      <xsd:import schemaLocation="https://apiconnector.com/v2/api.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://apiconnector.com/v2/api.svc?xsd=xsd2" namespace="http://apiconnector.com" />
+      <xsd:import schemaLocation="https://apiconnector.com/v2/api.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://apiconnector.com/v2/api.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/dotMailer.Web.ApiApp.v2.Facade" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ApiService_GetContactById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactById" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetContactById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetContactByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactByEmail" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetContactByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetContactStatusByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactStatusByEmail" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetContactStatusByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactStatusByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_CreateContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateContact" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_CreateContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_UpdateContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateContact" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_UpdateContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetAddressBooks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressBooks" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetAddressBooks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressBooksResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_CreateAddressBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAddressBook" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_CreateAddressBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAddressBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_UpdateAddressBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAddressBook" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_UpdateAddressBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAddressBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_DeleteAddressBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAddressBook" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_DeleteAddressBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAddressBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContacts" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetContactsInAddressBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactsInAddressBook" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetContactsInAddressBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactsInAddressBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetAddressBookContactCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressBookContactCount" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetAddressBookContactCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressBookContactCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_AddContactToAddressBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddContactToAddressBook" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_AddContactToAddressBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddContactToAddressBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_DeleteContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContact" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_DeleteContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_DeleteContactFromAddressBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContactFromAddressBook" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_DeleteContactFromAddressBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContactFromAddressBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_DeleteAllContactsFromAddressBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAllContactsFromAddressBook" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_DeleteAllContactsFromAddressBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAllContactsFromAddressBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_UnsubscribeContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnsubscribeContact" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_UnsubscribeContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnsubscribeContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_UnsubscribeContactFromAddressBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnsubscribeContactFromAddressBook" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_UnsubscribeContactFromAddressBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnsubscribeContactFromAddressBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_ResubscribeContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResubscribeContact" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_ResubscribeContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResubscribeContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_ResubscribeContactToAddressBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResubscribeContactToAddressBook" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_ResubscribeContactToAddressBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResubscribeContactToAddressBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetModifiedContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModifiedContacts" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetModifiedContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModifiedContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetModifiedContactsInAddressBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModifiedContactsInAddressBook" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetModifiedContactsInAddressBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModifiedContactsInAddressBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetNewContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewContacts" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetNewContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetAddressBooksForContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressBooksForContact" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetAddressBooksForContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressBooksForContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetAddressBooksForCampaign_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressBooksForCampaign" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetAddressBooksForCampaign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressBooksForCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetSuppressedContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuppressedContacts" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetSuppressedContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuppressedContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetUnsubscribedContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnsubscribedContacts" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetUnsubscribedContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnsubscribedContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetUnsubscribedContactsInAddressBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnsubscribedContactsInAddressBook" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetUnsubscribedContactsInAddressBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnsubscribedContactsInAddressBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_ImportContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImportContacts" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_ImportContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImportContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_ImportContactsToAddressBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImportContactsToAddressBook" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_ImportContactsToAddressBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImportContactsToAddressBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetContactImportProgress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactImportProgress" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetContactImportProgress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactImportProgressResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetContactImportReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactImportReport" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetContactImportReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactImportReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetContactImportReportFaults_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactImportReportFaults" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetContactImportReportFaults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactImportReportFaultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetImageFolders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageFolders" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetImageFolders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageFoldersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetImageFolderById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageFolderById" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetImageFolderById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageFolderByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_CreateImageFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateImageFolder" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_CreateImageFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateImageFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_UploadImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadImage" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_UploadImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignById" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaigns_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaigns" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaigns_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignsForAddressBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignsForAddressBook" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignsForAddressBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignsForAddressBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetSentCampaignsWithActivitySinceDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSentCampaignsWithActivitySinceDate" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetSentCampaignsWithActivitySinceDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSentCampaignsWithActivitySinceDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_CreateCampaign_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCampaign" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_CreateCampaign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_UpdateCampaign_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCampaign" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_UpdateCampaign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_CopyCampaign_InputMessage">
+    <wsdl:part name="parameters" element="tns:CopyCampaign" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_CopyCampaign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CopyCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_SendCampaign_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendCampaign" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_SendCampaign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignSendProgress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignSendProgress" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignSendProgress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignSendProgressResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignSummary_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignSummary" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignSummary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignContactActivity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignContactActivity" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignContactActivity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignContactActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignActivities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignActivities" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignActivities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignActivitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignActivitiesSinceDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignActivitiesSinceDate" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignActivitiesSinceDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignActivitiesSinceDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignClicks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignClicks" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignClicks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignClicksResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignContactClicks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignContactClicks" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignContactClicks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignContactClicksResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignOpens_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignOpens" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignOpens_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignOpensResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignContactOpens_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignContactOpens" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignContactOpens_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignContactOpensResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignPageViewsSinceDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignPageViewsSinceDate" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignPageViewsSinceDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignPageViewsSinceDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignContactPageViews_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignContactPageViews" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignContactPageViews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignContactPageViewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignContactReplies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignContactReplies" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignContactReplies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignContactRepliesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignSocialBookmarkViews_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignSocialBookmarkViews" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignSocialBookmarkViews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignSocialBookmarkViewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignContactSocialBookmarkViews_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignContactSocialBookmarkViews" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignContactSocialBookmarkViews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignContactSocialBookmarkViewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignRoiDetailsSinceDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignRoiDetailsSinceDate" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignRoiDetailsSinceDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignRoiDetailsSinceDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignContactRoiDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignContactRoiDetails" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignContactRoiDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignContactRoiDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetHardBouncingContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHardBouncingContacts" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetHardBouncingContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHardBouncingContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocuments" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetDocumentFolders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentFolders" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetDocumentFolders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentFoldersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignAttachments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignAttachments" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCampaignAttachments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignAttachmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_CreateDocumentFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDocumentFolder" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_CreateDocumentFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDocumentFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_UploadDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadDocument" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_UploadDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_AttachDocumentToCampaign_InputMessage">
+    <wsdl:part name="parameters" element="tns:AttachDocumentToCampaign" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_AttachDocumentToCampaign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AttachDocumentToCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_DetachDocumentFromCampaign_InputMessage">
+    <wsdl:part name="parameters" element="tns:DetachDocumentFromCampaign" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_DetachDocumentFromCampaign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DetachDocumentFromCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCustomFromAddresses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomFromAddresses" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCustomFromAddresses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomFromAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_SendSingleSmsMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendSingleSmsMessage" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_SendSingleSmsMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendSingleSmsMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_CreateTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTemplate" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_CreateTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_UpdateTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTemplate" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_UpdateTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetTemplateById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplateById" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetTemplateById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplateByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetTemplates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplates" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetTemplates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemplatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_CreateDataField_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDataField" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_CreateDataField_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDataFieldResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_DeleteDataField_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDataField" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_DeleteDataField_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDataFieldResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetDataFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataFields" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetDataFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCurrentAccountInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentAccountInfo" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetCurrentAccountInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentAccountInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetServerTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerTime" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetServerTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_AddTransactionalData_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTransactionalData" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_AddTransactionalData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTransactionalDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_ImportTransactionalData_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImportTransactionalData" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_ImportTransactionalData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImportTransactionalDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetTransactionalDataProgress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionalDataProgress" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetTransactionalDataProgress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionalDataProgressResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetTransactionalDataImportReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionalDataImportReport" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetTransactionalDataImportReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionalDataImportReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_DeleteTransactionalDataByKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTransactionalDataByKey" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_DeleteTransactionalDataByKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTransactionalDataByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_DeleteTransactionalDataByContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTransactionalDataByContact" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_DeleteTransactionalDataByContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTransactionalDataByContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetTransactionalDataByKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionalDataByKey" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetTransactionalDataByKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionalDataByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetTransactionalDataByContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionalDataByContact" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_GetTransactionalDataByContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionalDataByContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_ReplaceTransactionalDataByKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReplaceTransactionalDataByKey" />
+  </wsdl:message>
+  <wsdl:message name="ApiService_ReplaceTransactionalDataByKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReplaceTransactionalDataByKeyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ApiService">
+    <wsdl:documentation>
+      <summary>ApiServiceDescription</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="GetContactById">
+      <wsdl:documentation>
+        <summary>Gets a contact by ID. Unsubscribed or suppressed contacts will not be retrieved.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetContactById" message="tns:ApiService_GetContactById_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetContactByIdResponse" message="tns:ApiService_GetContactById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactByEmail">
+      <wsdl:documentation>
+        <summary>Gets a contact by email address.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetContactByEmail" message="tns:ApiService_GetContactByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetContactByEmailResponse" message="tns:ApiService_GetContactByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactStatusByEmail">
+      <wsdl:documentation>
+        <summary>Gets a contact status by email address.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetContactStatusByEmail" message="tns:ApiService_GetContactStatusByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetContactStatusByEmailResponse" message="tns:ApiService_GetContactStatusByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact">
+      <wsdl:documentation>
+        <summary>Creates a contact.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/CreateContact" message="tns:ApiService_CreateContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/CreateContactResponse" message="tns:ApiService_CreateContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContact">
+      <wsdl:documentation>
+        <summary>Updates a contact.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/UpdateContact" message="tns:ApiService_UpdateContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/UpdateContactResponse" message="tns:ApiService_UpdateContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressBooks">
+      <wsdl:documentation>
+        <summary>Gets all address books</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetAddressBooks" message="tns:ApiService_GetAddressBooks_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetAddressBooksResponse" message="tns:ApiService_GetAddressBooks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAddressBook">
+      <wsdl:documentation>
+        <summary>Creates an address book.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/CreateAddressBook" message="tns:ApiService_CreateAddressBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/CreateAddressBookResponse" message="tns:ApiService_CreateAddressBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAddressBook">
+      <wsdl:documentation>
+        <summary>Updates an address book.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/UpdateAddressBook" message="tns:ApiService_UpdateAddressBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/UpdateAddressBookResponse" message="tns:ApiService_UpdateAddressBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAddressBook">
+      <wsdl:documentation>
+        <summary>Deletes an address book.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/DeleteAddressBook" message="tns:ApiService_DeleteAddressBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/DeleteAddressBookResponse" message="tns:ApiService_DeleteAddressBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContacts">
+      <wsdl:documentation>
+        <summary>Gets a list of all contacts in the account</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetContacts" message="tns:ApiService_GetContacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetContactsResponse" message="tns:ApiService_GetContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactsInAddressBook">
+      <wsdl:documentation>
+        <summary>Gets a list of contacts in a given address book.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetContactsInAddressBook" message="tns:ApiService_GetContactsInAddressBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetContactsInAddressBookResponse" message="tns:ApiService_GetContactsInAddressBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressBookContactCount">
+      <wsdl:documentation>
+        <summary>Gets the amount of contacts in a given address book.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetAddressBookContactCount" message="tns:ApiService_GetAddressBookContactCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetAddressBookContactCountResponse" message="tns:ApiService_GetAddressBookContactCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddContactToAddressBook">
+      <wsdl:documentation>
+        <summary>Adds a contact to a given address book.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/AddContactToAddressBook" message="tns:ApiService_AddContactToAddressBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/AddContactToAddressBookResponse" message="tns:ApiService_AddContactToAddressBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <wsdl:documentation>
+        <summary>Deletes a contact.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/DeleteContact" message="tns:ApiService_DeleteContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/DeleteContactResponse" message="tns:ApiService_DeleteContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContactFromAddressBook">
+      <wsdl:documentation>
+        <summary>Deletes a contact from a given address book.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/DeleteContactFromAddressBook" message="tns:ApiService_DeleteContactFromAddressBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/DeleteContactFromAddressBookResponse" message="tns:ApiService_DeleteContactFromAddressBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllContactsFromAddressBook">
+      <wsdl:documentation>
+        <summary>Deletes all contacts from a given address book.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/DeleteAllContactsFromAddressBook" message="tns:ApiService_DeleteAllContactsFromAddressBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/DeleteAllContactsFromAddressBookResponse" message="tns:ApiService_DeleteAllContactsFromAddressBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnsubscribeContact">
+      <wsdl:documentation>
+        <summary>Unsubcsribes contact from account.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/UnsubscribeContact" message="tns:ApiService_UnsubscribeContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/UnsubscribeContactResponse" message="tns:ApiService_UnsubscribeContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnsubscribeContactFromAddressBook">
+      <wsdl:documentation>
+        <summary>Unsubcsribes contact from a given address book.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/UnsubscribeContactFromAddressBook" message="tns:ApiService_UnsubscribeContactFromAddressBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/UnsubscribeContactFromAddressBookResponse" message="tns:ApiService_UnsubscribeContactFromAddressBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResubscribeContact">
+      <wsdl:documentation>
+        <summary>Resubscribes a previously unsubscribed contact.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/ResubscribeContact" message="tns:ApiService_ResubscribeContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/ResubscribeContactResponse" message="tns:ApiService_ResubscribeContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResubscribeContactToAddressBook">
+      <wsdl:documentation>
+        <summary>Resubscribes a previously unsubscribed contact to a given address book.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/ResubscribeContactToAddressBook" message="tns:ApiService_ResubscribeContactToAddressBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/ResubscribeContactToAddressBookResponse" message="tns:ApiService_ResubscribeContactToAddressBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModifiedContacts">
+      <wsdl:documentation>
+        <summary>Gets a list of modified contacts after a specified date.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetModifiedContacts" message="tns:ApiService_GetModifiedContacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetModifiedContactsResponse" message="tns:ApiService_GetModifiedContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModifiedContactsInAddressBook">
+      <wsdl:documentation>
+        <summary>Gets a list of contacts who were modified since a given date, in a given address book.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetModifiedContactsInAddressBook" message="tns:ApiService_GetModifiedContactsInAddressBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetModifiedContactsInAddressBookResponse" message="tns:ApiService_GetModifiedContactsInAddressBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewContacts">
+      <wsdl:documentation>
+        <summary>Gets a list of created contacts after a specified date.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetNewContacts" message="tns:ApiService_GetNewContacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetNewContactsResponse" message="tns:ApiService_GetNewContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressBooksForContact">
+      <wsdl:documentation>
+        <summary>Gets any address books that a contact is in.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetAddressBooksForContact" message="tns:ApiService_GetAddressBooksForContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetAddressBooksForContactResponse" message="tns:ApiService_GetAddressBooksForContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressBooksForCampaign">
+      <wsdl:documentation>
+        <summary>Gets any address books that a campaign has ever been sent to.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetAddressBooksForCampaign" message="tns:ApiService_GetAddressBooksForCampaign_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetAddressBooksForCampaignResponse" message="tns:ApiService_GetAddressBooksForCampaign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppressedContacts">
+      <wsdl:documentation>
+        <summary>Gets a list of suppressed contacts after a given date along with the reason for suppression.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetSuppressedContacts" message="tns:ApiService_GetSuppressedContacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetSuppressedContactsResponse" message="tns:ApiService_GetSuppressedContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnsubscribedContacts">
+      <wsdl:documentation>
+        <summary>Gets a list of unsubscribed contacts who unsubscribed after a given date.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetUnsubscribedContacts" message="tns:ApiService_GetUnsubscribedContacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetUnsubscribedContactsResponse" message="tns:ApiService_GetUnsubscribedContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnsubscribedContactsInAddressBook">
+      <wsdl:documentation>
+        <summary>Gets a list of contacts who have unsubscribed from a given address book.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetUnsubscribedContactsInAddressBook" message="tns:ApiService_GetUnsubscribedContactsInAddressBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetUnsubscribedContactsInAddressBookResponse" message="tns:ApiService_GetUnsubscribedContactsInAddressBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportContacts">
+      <wsdl:documentation>
+        <summary>Bulk creates, or bulk updates, contacts. Import format can either be CSV or Excel. Must include one column called "Email". Any other columns will attempt to map to your custom data fields. The ID of returned object can be used to query import progress.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/ImportContacts" message="tns:ApiService_ImportContacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/ImportContactsResponse" message="tns:ApiService_ImportContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportContactsToAddressBook">
+      <wsdl:documentation>
+        <summary>Bulk creates, or bulk updates, contacts. Import format can either be CSV or Excel. Must include one column called "Email". Any other columns will attempt to map to your custom data fields. The ID of returned object can be used to query import progress.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/ImportContactsToAddressBook" message="tns:ApiService_ImportContactsToAddressBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/ImportContactsToAddressBookResponse" message="tns:ApiService_ImportContactsToAddressBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactImportProgress">
+      <wsdl:documentation>
+        <summary>Gets the import status of a previously started contact import.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetContactImportProgress" message="tns:ApiService_GetContactImportProgress_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetContactImportProgressResponse" message="tns:ApiService_GetContactImportProgress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactImportReport">
+      <wsdl:documentation>
+        <summary>Gets a report with statistics about what was successfully imported, and what was unable to be imported.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetContactImportReport" message="tns:ApiService_GetContactImportReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetContactImportReportResponse" message="tns:ApiService_GetContactImportReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactImportReportFaults">
+      <wsdl:documentation>
+        <summary>Gets all records that were not successfully imported. The data are returned in CSV file, which is UTF-8 encoded. This data will only be available for approximately one week after import.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetContactImportReportFaults" message="tns:ApiService_GetContactImportReportFaults_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetContactImportReportFaultsResponse" message="tns:ApiService_GetContactImportReportFaults_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFolders">
+      <wsdl:documentation>
+        <summary>Fetches the campaign image folder tree structure.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetImageFolders" message="tns:ApiService_GetImageFolders_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetImageFoldersResponse" message="tns:ApiService_GetImageFolders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFolderById">
+      <wsdl:documentation>
+        <summary>Gets an image folder by id.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetImageFolderById" message="tns:ApiService_GetImageFolderById_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetImageFolderByIdResponse" message="tns:ApiService_GetImageFolderById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateImageFolder">
+      <wsdl:documentation>
+        <summary>Creates a new campaign image folder.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/CreateImageFolder" message="tns:ApiService_CreateImageFolder_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/CreateImageFolderResponse" message="tns:ApiService_CreateImageFolder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadImage">
+      <wsdl:documentation>
+        <summary>Uploads a new campaign image to the specified folder.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/UploadImage" message="tns:ApiService_UploadImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/UploadImageResponse" message="tns:ApiService_UploadImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignById">
+      <wsdl:documentation>
+        <summary>Gets a campaign by ID.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignById" message="tns:ApiService_GetCampaignById_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignByIdResponse" message="tns:ApiService_GetCampaignById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaigns">
+      <wsdl:documentation>
+        <summary>Gets all campaigns</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaigns" message="tns:ApiService_GetCampaigns_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignsResponse" message="tns:ApiService_GetCampaigns_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignsForAddressBook">
+      <wsdl:documentation>
+        <summary>Gets any campaigns that have been sent to an address book.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignsForAddressBook" message="tns:ApiService_GetCampaignsForAddressBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignsForAddressBookResponse" message="tns:ApiService_GetCampaignsForAddressBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSentCampaignsWithActivitySinceDate">
+      <wsdl:documentation>
+        <summary>Gets all sent campaigns, which have had activity (e.g. clicks, opens) after a specified date.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetSentCampaignsWithActivitySinceDate" message="tns:ApiService_GetSentCampaignsWithActivitySinceDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetSentCampaignsWithActivitySinceDateResponse" message="tns:ApiService_GetSentCampaignsWithActivitySinceDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCampaign">
+      <wsdl:documentation>
+        <summary>Creates a campaign.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/CreateCampaign" message="tns:ApiService_CreateCampaign_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/CreateCampaignResponse" message="tns:ApiService_CreateCampaign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCampaign">
+      <wsdl:documentation>
+        <summary>Updates a given campaign.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/UpdateCampaign" message="tns:ApiService_UpdateCampaign_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/UpdateCampaignResponse" message="tns:ApiService_UpdateCampaign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CopyCampaign">
+      <wsdl:documentation>
+        <summary>Copies a given campaign returning the new campaign.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/CopyCampaign" message="tns:ApiService_CopyCampaign_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/CopyCampaignResponse" message="tns:ApiService_CopyCampaign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCampaign">
+      <wsdl:documentation>
+        <summary>Sends a specified campaign to one or more address books or contacts at a specified time. Leave the address book array empty to send to All Contacts.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/SendCampaign" message="tns:ApiService_SendCampaign_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/SendCampaignResponse" message="tns:ApiService_SendCampaign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignSendProgress">
+      <wsdl:documentation>
+        <summary>Gets the send status using send ID.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignSendProgress" message="tns:ApiService_GetCampaignSendProgress_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignSendProgressResponse" message="tns:ApiService_GetCampaignSendProgress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignSummary">
+      <wsdl:documentation>
+        <summary>Gets a summary of reporting information for a specified campaign.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignSummary" message="tns:ApiService_GetCampaignSummary_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignSummaryResponse" message="tns:ApiService_GetCampaignSummary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactActivity">
+      <wsdl:documentation>
+        <summary>Gets activity for a given contact and campaign.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignContactActivity" message="tns:ApiService_GetCampaignContactActivity_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignContactActivityResponse" message="tns:ApiService_GetCampaignContactActivity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignActivities">
+      <wsdl:documentation>
+        <summary>Gets a list of contacts who were sent a campaign, with their activity.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignActivities" message="tns:ApiService_GetCampaignActivities_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignActivitiesResponse" message="tns:ApiService_GetCampaignActivities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignActivitiesSinceDate">
+      <wsdl:documentation>
+        <summary>Gets a list of contacts who were sent a campaign, and retrieves only those contacts who showed activity (e.g. they clicked, opened) after a specified date.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignActivitiesSinceDate" message="tns:ApiService_GetCampaignActivitiesSinceDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignActivitiesSinceDateResponse" message="tns:ApiService_GetCampaignActivitiesSinceDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignClicks">
+      <wsdl:documentation>
+        <summary>Gets a list of campaign link clicks.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignClicks" message="tns:ApiService_GetCampaignClicks_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignClicksResponse" message="tns:ApiService_GetCampaignClicks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactClicks">
+      <wsdl:documentation>
+        <summary>Gets a list of campaign link clicks for a contact.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignContactClicks" message="tns:ApiService_GetCampaignContactClicks_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignContactClicksResponse" message="tns:ApiService_GetCampaignContactClicks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignOpens">
+      <wsdl:documentation>
+        <summary>Gets a list of campaign opens.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignOpens" message="tns:ApiService_GetCampaignOpens_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignOpensResponse" message="tns:ApiService_GetCampaignOpens_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactOpens">
+      <wsdl:documentation>
+        <summary>Gets a list of campaign opens for a contact.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignContactOpens" message="tns:ApiService_GetCampaignContactOpens_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignContactOpensResponse" message="tns:ApiService_GetCampaignContactOpens_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignPageViewsSinceDate">
+      <wsdl:documentation>
+        <summary>Gets a list of page views for a campaign after a specified date.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignPageViewsSinceDate" message="tns:ApiService_GetCampaignPageViewsSinceDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignPageViewsSinceDateResponse" message="tns:ApiService_GetCampaignPageViewsSinceDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactPageViews">
+      <wsdl:documentation>
+        <summary>Gets a list of page views for a contact.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignContactPageViews" message="tns:ApiService_GetCampaignContactPageViews_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignContactPageViewsResponse" message="tns:ApiService_GetCampaignContactPageViews_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactReplies">
+      <wsdl:documentation>
+        <summary>Gets a list of campaign replies for a contact. You may not request more than 5 records at a time using the "select" parameter.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignContactReplies" message="tns:ApiService_GetCampaignContactReplies_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignContactRepliesResponse" message="tns:ApiService_GetCampaignContactReplies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignSocialBookmarkViews">
+      <wsdl:documentation>
+        <summary>Gets campaign social bookmark views for a campaign.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignSocialBookmarkViews" message="tns:ApiService_GetCampaignSocialBookmarkViews_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignSocialBookmarkViewsResponse" message="tns:ApiService_GetCampaignSocialBookmarkViews_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactSocialBookmarkViews">
+      <wsdl:documentation>
+        <summary>Gets campaign social bookmark views for a contact.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignContactSocialBookmarkViews" message="tns:ApiService_GetCampaignContactSocialBookmarkViews_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignContactSocialBookmarkViewsResponse" message="tns:ApiService_GetCampaignContactSocialBookmarkViews_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignRoiDetailsSinceDate">
+      <wsdl:documentation>
+        <summary>Retrieves a list of ROI information for a campaign after the specified date.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignRoiDetailsSinceDate" message="tns:ApiService_GetCampaignRoiDetailsSinceDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignRoiDetailsSinceDateResponse" message="tns:ApiService_GetCampaignRoiDetailsSinceDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactRoiDetails">
+      <wsdl:documentation>
+        <summary>Gets a list of ROI information for a contact.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignContactRoiDetails" message="tns:ApiService_GetCampaignContactRoiDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignContactRoiDetailsResponse" message="tns:ApiService_GetCampaignContactRoiDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHardBouncingContacts">
+      <wsdl:documentation>
+        <summary>Gets a list of contacts who hard bounced when sent a particular campaign.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetHardBouncingContacts" message="tns:ApiService_GetHardBouncingContacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetHardBouncingContactsResponse" message="tns:ApiService_GetHardBouncingContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocuments">
+      <wsdl:documentation>
+        <summary>Gets all uploaded documents.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetDocuments" message="tns:ApiService_GetDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetDocumentsResponse" message="tns:ApiService_GetDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentFolders">
+      <wsdl:documentation>
+        <summary>Fetches the document folder tree structure.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetDocumentFolders" message="tns:ApiService_GetDocumentFolders_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetDocumentFoldersResponse" message="tns:ApiService_GetDocumentFolders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignAttachments">
+      <wsdl:documentation>
+        <summary>Gets documents that are currently attached to a campaign.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignAttachments" message="tns:ApiService_GetCampaignAttachments_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCampaignAttachmentsResponse" message="tns:ApiService_GetCampaignAttachments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocumentFolder">
+      <wsdl:documentation>
+        <summary>Creates a new document folder.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/CreateDocumentFolder" message="tns:ApiService_CreateDocumentFolder_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/CreateDocumentFolderResponse" message="tns:ApiService_CreateDocumentFolder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocument">
+      <wsdl:documentation>
+        <summary>Upload a document to the specified folder.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/UploadDocument" message="tns:ApiService_UploadDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/UploadDocumentResponse" message="tns:ApiService_UploadDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AttachDocumentToCampaign">
+      <wsdl:documentation>
+        <summary>Adds a document to a campaign as an attachment.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/AttachDocumentToCampaign" message="tns:ApiService_AttachDocumentToCampaign_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/AttachDocumentToCampaignResponse" message="tns:ApiService_AttachDocumentToCampaign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DetachDocumentFromCampaign">
+      <wsdl:documentation>
+        <summary>Removes an attachment from a campaign.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/DetachDocumentFromCampaign" message="tns:ApiService_DetachDocumentFromCampaign_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/DetachDocumentFromCampaignResponse" message="tns:ApiService_DetachDocumentFromCampaign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomFromAddresses">
+      <wsdl:documentation>
+        <summary>Gets all custom from addresses which can be used in a campaign.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCustomFromAddresses" message="tns:ApiService_GetCustomFromAddresses_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCustomFromAddressesResponse" message="tns:ApiService_GetCustomFromAddresses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSingleSmsMessage">
+      <wsdl:documentation>
+        <summary>Send a single SMS message.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/SendSingleSmsMessage" message="tns:ApiService_SendSingleSmsMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/SendSingleSmsMessageResponse" message="tns:ApiService_SendSingleSmsMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTemplate">
+      <wsdl:documentation>
+        <summary>Creates a template.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/CreateTemplate" message="tns:ApiService_CreateTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/CreateTemplateResponse" message="tns:ApiService_CreateTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTemplate">
+      <wsdl:documentation>
+        <summary>Updates a template.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/UpdateTemplate" message="tns:ApiService_UpdateTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/UpdateTemplateResponse" message="tns:ApiService_UpdateTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateById">
+      <wsdl:documentation>
+        <summary>Gets a template by ID.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetTemplateById" message="tns:ApiService_GetTemplateById_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetTemplateByIdResponse" message="tns:ApiService_GetTemplateById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplates">
+      <wsdl:documentation>
+        <summary>Gets list of all templates.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetTemplates" message="tns:ApiService_GetTemplates_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetTemplatesResponse" message="tns:ApiService_GetTemplates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDataField">
+      <wsdl:documentation>
+        <summary>Creates a data field within the account.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/CreateDataField" message="tns:ApiService_CreateDataField_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/CreateDataFieldResponse" message="tns:ApiService_CreateDataField_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDataField">
+      <wsdl:documentation>
+        <summary>Deletes a data field within the account.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/DeleteDataField" message="tns:ApiService_DeleteDataField_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/DeleteDataFieldResponse" message="tns:ApiService_DeleteDataField_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataFields">
+      <wsdl:documentation>
+        <summary>Lists the data fields within the account.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetDataFields" message="tns:ApiService_GetDataFields_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetDataFieldsResponse" message="tns:ApiService_GetDataFields_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentAccountInfo">
+      <wsdl:documentation>
+        <summary>Gets a summary of information about the current status of the account.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetCurrentAccountInfo" message="tns:ApiService_GetCurrentAccountInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetCurrentAccountInfoResponse" message="tns:ApiService_GetCurrentAccountInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerTime">
+      <wsdl:documentation>
+        <summary>Gets the UTC time as set on the server.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetServerTime" message="tns:ApiService_GetServerTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetServerTimeResponse" message="tns:ApiService_GetServerTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTransactionalData">
+      <wsdl:documentation>
+        <summary>Adds a single piece of transactional data to a contact.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/AddTransactionalData" message="tns:ApiService_AddTransactionalData_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/AddTransactionalDataResponse" message="tns:ApiService_AddTransactionalData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportTransactionalData">
+      <wsdl:documentation>
+        <summary>Adds multiple pieces of transactional data to contacts asynchronously, returning an identifier that can be used to check for import progress.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/ImportTransactionalData" message="tns:ApiService_ImportTransactionalData_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/ImportTransactionalDataResponse" message="tns:ApiService_ImportTransactionalData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionalDataProgress">
+      <wsdl:documentation>
+        <summary>Gets the import status of a previously started transactional import.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetTransactionalDataProgress" message="tns:ApiService_GetTransactionalDataProgress_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetTransactionalDataProgressResponse" message="tns:ApiService_GetTransactionalDataProgress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionalDataImportReport">
+      <wsdl:documentation>
+        <summary>Gets a report with statistics about what was successfully imported, and what was unable to be imported.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetTransactionalDataImportReport" message="tns:ApiService_GetTransactionalDataImportReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetTransactionalDataImportReportResponse" message="tns:ApiService_GetTransactionalDataImportReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTransactionalDataByKey">
+      <wsdl:documentation>
+        <summary>Deletes a piece of transactional data by key.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/DeleteTransactionalDataByKey" message="tns:ApiService_DeleteTransactionalDataByKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/DeleteTransactionalDataByKeyResponse" message="tns:ApiService_DeleteTransactionalDataByKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTransactionalDataByContact">
+      <wsdl:documentation>
+        <summary>Deletes all transactional data for a contact.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/DeleteTransactionalDataByContact" message="tns:ApiService_DeleteTransactionalDataByContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/DeleteTransactionalDataByContactResponse" message="tns:ApiService_DeleteTransactionalDataByContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionalDataByKey">
+      <wsdl:documentation>
+        <summary>Gets a piece of transactional data by key.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetTransactionalDataByKey" message="tns:ApiService_GetTransactionalDataByKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetTransactionalDataByKeyResponse" message="tns:ApiService_GetTransactionalDataByKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionalDataByContact">
+      <wsdl:documentation>
+        <summary>Gets a list of all transactional data for a contact.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/GetTransactionalDataByContact" message="tns:ApiService_GetTransactionalDataByContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/GetTransactionalDataByContactResponse" message="tns:ApiService_GetTransactionalDataByContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceTransactionalDataByKey">
+      <wsdl:documentation>
+        <summary>Replaces a piece of transactional data by key (logicall equivalent to a delete and an insert).</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/ApiService/ReplaceTransactionalDataByKey" message="tns:ApiService_ReplaceTransactionalDataByKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/ApiService/ReplaceTransactionalDataByKeyResponse" message="tns:ApiService_ReplaceTransactionalDataByKey_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Secure_ApiService" type="tns:ApiService">
+    <wsp:PolicyReference URI="#Secure_ApiService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetContactById">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetContactById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactByEmail">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetContactByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactStatusByEmail">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetContactStatusByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/CreateContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContact">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/UpdateContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressBooks">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetAddressBooks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/CreateAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/UpdateAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/DeleteAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContacts">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactsInAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetContactsInAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressBookContactCount">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetAddressBookContactCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddContactToAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/AddContactToAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/DeleteContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContactFromAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/DeleteContactFromAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllContactsFromAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/DeleteAllContactsFromAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnsubscribeContact">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/UnsubscribeContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnsubscribeContactFromAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/UnsubscribeContactFromAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResubscribeContact">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/ResubscribeContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResubscribeContactToAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/ResubscribeContactToAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModifiedContacts">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetModifiedContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModifiedContactsInAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetModifiedContactsInAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewContacts">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetNewContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressBooksForContact">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetAddressBooksForContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressBooksForCampaign">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetAddressBooksForCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppressedContacts">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetSuppressedContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnsubscribedContacts">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetUnsubscribedContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnsubscribedContactsInAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetUnsubscribedContactsInAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportContacts">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/ImportContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportContactsToAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/ImportContactsToAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactImportProgress">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetContactImportProgress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactImportReport">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetContactImportReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactImportReportFaults">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetContactImportReportFaults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFolders">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetImageFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFolderById">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetImageFolderById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateImageFolder">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/CreateImageFolder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadImage">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/UploadImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignById">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaigns">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaigns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignsForAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignsForAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSentCampaignsWithActivitySinceDate">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetSentCampaignsWithActivitySinceDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCampaign">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/CreateCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCampaign">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/UpdateCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CopyCampaign">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/CopyCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCampaign">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/SendCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignSendProgress">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignSendProgress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignSummary">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactActivity">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignContactActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignActivities">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignActivities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignActivitiesSinceDate">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignActivitiesSinceDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignClicks">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignClicks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactClicks">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignContactClicks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignOpens">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignOpens" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactOpens">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignContactOpens" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignPageViewsSinceDate">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignPageViewsSinceDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactPageViews">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignContactPageViews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactReplies">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignContactReplies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignSocialBookmarkViews">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignSocialBookmarkViews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactSocialBookmarkViews">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignContactSocialBookmarkViews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignRoiDetailsSinceDate">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignRoiDetailsSinceDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactRoiDetails">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignContactRoiDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHardBouncingContacts">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetHardBouncingContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocuments">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentFolders">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetDocumentFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignAttachments">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignAttachments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocumentFolder">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/CreateDocumentFolder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocument">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/UploadDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AttachDocumentToCampaign">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/AttachDocumentToCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetachDocumentFromCampaign">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/DetachDocumentFromCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomFromAddresses">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCustomFromAddresses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSingleSmsMessage">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/SendSingleSmsMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTemplate">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/CreateTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTemplate">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/UpdateTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateById">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetTemplateById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplates">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetTemplates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDataField">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/CreateDataField" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDataField">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/DeleteDataField" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataFields">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetDataFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentAccountInfo">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCurrentAccountInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerTime">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetServerTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTransactionalData">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/AddTransactionalData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportTransactionalData">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/ImportTransactionalData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionalDataProgress">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetTransactionalDataProgress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionalDataImportReport">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetTransactionalDataImportReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTransactionalDataByKey">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/DeleteTransactionalDataByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTransactionalDataByContact">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/DeleteTransactionalDataByContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionalDataByKey">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetTransactionalDataByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionalDataByContact">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetTransactionalDataByContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceTransactionalDataByKey">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/ReplaceTransactionalDataByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PlainHttp_ApiService" type="tns:ApiService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetContactById">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetContactById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactByEmail">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetContactByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactStatusByEmail">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetContactStatusByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/CreateContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContact">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/UpdateContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressBooks">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetAddressBooks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/CreateAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/UpdateAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/DeleteAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContacts">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactsInAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetContactsInAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressBookContactCount">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetAddressBookContactCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddContactToAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/AddContactToAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/DeleteContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContactFromAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/DeleteContactFromAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllContactsFromAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/DeleteAllContactsFromAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnsubscribeContact">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/UnsubscribeContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnsubscribeContactFromAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/UnsubscribeContactFromAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResubscribeContact">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/ResubscribeContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResubscribeContactToAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/ResubscribeContactToAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModifiedContacts">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetModifiedContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModifiedContactsInAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetModifiedContactsInAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewContacts">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetNewContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressBooksForContact">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetAddressBooksForContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressBooksForCampaign">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetAddressBooksForCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppressedContacts">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetSuppressedContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnsubscribedContacts">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetUnsubscribedContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnsubscribedContactsInAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetUnsubscribedContactsInAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportContacts">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/ImportContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportContactsToAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/ImportContactsToAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactImportProgress">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetContactImportProgress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactImportReport">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetContactImportReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactImportReportFaults">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetContactImportReportFaults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFolders">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetImageFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFolderById">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetImageFolderById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateImageFolder">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/CreateImageFolder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadImage">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/UploadImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignById">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaigns">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaigns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignsForAddressBook">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignsForAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSentCampaignsWithActivitySinceDate">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetSentCampaignsWithActivitySinceDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCampaign">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/CreateCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCampaign">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/UpdateCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CopyCampaign">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/CopyCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCampaign">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/SendCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignSendProgress">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignSendProgress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignSummary">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactActivity">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignContactActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignActivities">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignActivities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignActivitiesSinceDate">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignActivitiesSinceDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignClicks">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignClicks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactClicks">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignContactClicks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignOpens">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignOpens" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactOpens">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignContactOpens" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignPageViewsSinceDate">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignPageViewsSinceDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactPageViews">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignContactPageViews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactReplies">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignContactReplies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignSocialBookmarkViews">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignSocialBookmarkViews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactSocialBookmarkViews">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignContactSocialBookmarkViews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignRoiDetailsSinceDate">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignRoiDetailsSinceDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignContactRoiDetails">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignContactRoiDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHardBouncingContacts">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetHardBouncingContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocuments">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentFolders">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetDocumentFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignAttachments">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCampaignAttachments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocumentFolder">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/CreateDocumentFolder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocument">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/UploadDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AttachDocumentToCampaign">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/AttachDocumentToCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetachDocumentFromCampaign">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/DetachDocumentFromCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomFromAddresses">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCustomFromAddresses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSingleSmsMessage">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/SendSingleSmsMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTemplate">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/CreateTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTemplate">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/UpdateTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplateById">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetTemplateById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplates">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetTemplates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDataField">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/CreateDataField" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDataField">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/DeleteDataField" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataFields">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetDataFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentAccountInfo">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetCurrentAccountInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerTime">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetServerTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTransactionalData">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/AddTransactionalData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportTransactionalData">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/ImportTransactionalData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionalDataProgress">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetTransactionalDataProgress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionalDataImportReport">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetTransactionalDataImportReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTransactionalDataByKey">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/DeleteTransactionalDataByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTransactionalDataByContact">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/DeleteTransactionalDataByContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionalDataByKey">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetTransactionalDataByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionalDataByContact">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/GetTransactionalDataByContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceTransactionalDataByKey">
+      <soap:operation soapAction="http://apiconnector.com/v2/ApiService/ReplaceTransactionalDataByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ApiService">
+    <wsdl:port name="Secure_ApiService" binding="tns:Secure_ApiService">
+      <soap:address location="https://apiconnector.com/v2/api.svc" />
+    </wsdl:port>
+    <wsdl:port name="PlainHttp_ApiService" binding="tns:PlainHttp_ApiService">
+      <soap:address location="http://apiconnector.com/v2/api.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

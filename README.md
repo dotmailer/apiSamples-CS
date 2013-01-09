@@ -1,4 +1,2 @@
-ApiSamples-CS
-=============
-
-C# samples for dotMailer API.
+Api Samples
+==========
