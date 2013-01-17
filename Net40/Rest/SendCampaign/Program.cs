@@ -64,7 +64,7 @@ namespace dotMailer.SendCampaign
             String url = String.Format("v2/campaigns/{0}/summary", campaign.Id); 
             HttpResponseMessage response = _client.GetAsync(url).Result;
             Dictionary<String, String> summary = response.Content.ReadAsAsync<Dictionary<String, String>>().Result;
-            Console.WriteLine("Campaign has been sended {0} times", summary["NumSent"]);
+            Console.WriteLine("Campaign has been sended {0} times", summary["numSent"]);
         }
 
         private static ApiCampaign CreateCampaign()

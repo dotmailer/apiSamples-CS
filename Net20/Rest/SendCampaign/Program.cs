@@ -82,7 +82,7 @@ namespace dotMailer.SendCampaign
 
             Dictionary<String, String> summary = ReadResult<Dictionary<String, String>>(request);
             
-            Console.WriteLine("Campaign has been sended {0} times", summary["NumSent"]);
+            Console.WriteLine("Campaign has been sended {0} times", summary["numSent"]);
         }
 
         private static ApiCampaign CreateCampaign()
