@@ -160,6 +160,7 @@ namespace dotMailer.EditContact.ApiServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ApiContactData", Namespace="http://apiconnector.com")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(int[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalDataImportReport))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalDataImportReportFault[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalDataImportReportFault))]
@@ -231,7 +232,6 @@ namespace dotMailer.EditContact.ApiServiceReference {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalData))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalData[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalDataImportStatuses))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(int[]))]
     public partial class ApiContactData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -1132,9 +1132,6 @@ namespace dotMailer.EditContact.ApiServiceReference {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ParentFolderIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private dotMailer.EditContact.ApiServiceReference.ApiImageFolder[] ChildFoldersField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -1173,20 +1170,7 @@ namespace dotMailer.EditContact.ApiServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ParentFolderId {
-            get {
-                return this.ParentFolderIdField;
-            }
-            set {
-                if ((this.ParentFolderIdField.Equals(value) != true)) {
-                    this.ParentFolderIdField = value;
-                    this.RaisePropertyChanged("ParentFolderId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public dotMailer.EditContact.ApiServiceReference.ApiImageFolder[] ChildFolders {
             get {
                 return this.ChildFoldersField;
@@ -1225,9 +1209,6 @@ namespace dotMailer.EditContact.ApiServiceReference {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ParentFolderIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PathField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -1262,19 +1243,6 @@ namespace dotMailer.EditContact.ApiServiceReference {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ParentFolderId {
-            get {
-                return this.ParentFolderIdField;
-            }
-            set {
-                if ((this.ParentFolderIdField.Equals(value) != true)) {
-                    this.ParentFolderIdField = value;
-                    this.RaisePropertyChanged("ParentFolderId");
                 }
             }
         }
@@ -3696,6 +3664,7 @@ namespace dotMailer.EditContact.ApiServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ApiCampaignContactRoiDetail", Namespace="http://apiconnector.com")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(int[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalDataImportReport))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalDataImportReportFault[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalDataImportReportFault))]
@@ -3767,7 +3736,6 @@ namespace dotMailer.EditContact.ApiServiceReference {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalData))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalData[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalDataImportStatuses))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(int[]))]
     public partial class ApiCampaignContactRoiDetail : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -4046,9 +4014,6 @@ namespace dotMailer.EditContact.ApiServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ParentIdField;
-        
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -4077,20 +4042,7 @@ namespace dotMailer.EditContact.ApiServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ParentId {
-            get {
-                return this.ParentIdField;
-            }
-            set {
-                if ((this.ParentIdField.Equals(value) != true)) {
-                    this.ParentIdField = value;
-                    this.RaisePropertyChanged("ParentId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string Name {
             get {
                 return this.NameField;
@@ -4103,7 +4055,7 @@ namespace dotMailer.EditContact.ApiServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public dotMailer.EditContact.ApiServiceReference.ApiDocumentFolder[] ChildFolders {
             get {
                 return this.ChildFoldersField;
@@ -4326,6 +4278,7 @@ namespace dotMailer.EditContact.ApiServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ApiDataField", Namespace="http://apiconnector.com")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(int[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalDataImportReport))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalDataImportReportFault[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalDataImportReportFault))]
@@ -4397,7 +4350,6 @@ namespace dotMailer.EditContact.ApiServiceReference {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalData))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalData[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.EditContact.ApiServiceReference.ApiTransactionalDataImportStatuses))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(int[]))]
     public partial class ApiDataField : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -4690,7 +4642,7 @@ namespace dotMailer.EditContact.ApiServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDField;
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private dotMailer.EditContact.ApiServiceReference.ApiAccountProperty[] PropertiesField;
@@ -4706,14 +4658,14 @@ namespace dotMailer.EditContact.ApiServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID {
+        public int Id {
             get {
-                return this.IDField;
+                return this.IdField;
             }
             set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -5129,10 +5081,10 @@ namespace dotMailer.EditContact.ApiServiceReference {
         System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiImageFolder> GetImageFolderByIdAsync(int folderId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/CreateImageFolder", ReplyAction="http://apiconnector.com/v2/ApiService/CreateImageFolderResponse")]
-        dotMailer.EditContact.ApiServiceReference.ApiImageFolder CreateImageFolder(dotMailer.EditContact.ApiServiceReference.ApiImageFolder folder);
+        dotMailer.EditContact.ApiServiceReference.ApiImageFolder CreateImageFolder(int folderId, dotMailer.EditContact.ApiServiceReference.ApiImageFolder folder);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/CreateImageFolder", ReplyAction="http://apiconnector.com/v2/ApiService/CreateImageFolderResponse")]
-        System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiImageFolder> CreateImageFolderAsync(dotMailer.EditContact.ApiServiceReference.ApiImageFolder folder);
+        System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiImageFolder> CreateImageFolderAsync(int folderId, dotMailer.EditContact.ApiServiceReference.ApiImageFolder folder);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/UploadImage", ReplyAction="http://apiconnector.com/v2/ApiService/UploadImageResponse")]
         dotMailer.EditContact.ApiServiceReference.ApiImage UploadImage(int folderId, string filename, byte[] data);
@@ -5153,10 +5105,10 @@ namespace dotMailer.EditContact.ApiServiceReference {
         System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiCampaign[]> GetCampaignsAsync(int select, int skip);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetCampaignsForAddressBook", ReplyAction="http://apiconnector.com/v2/ApiService/GetCampaignsForAddressBookResponse")]
-        dotMailer.EditContact.ApiServiceReference.ApiCampaign[] GetCampaignsForAddressBook(int addressBookId);
+        dotMailer.EditContact.ApiServiceReference.ApiCampaign[] GetCampaignsForAddressBook(int addressBookId, int select, int skip);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetCampaignsForAddressBook", ReplyAction="http://apiconnector.com/v2/ApiService/GetCampaignsForAddressBookResponse")]
-        System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiCampaign[]> GetCampaignsForAddressBookAsync(int addressBookId);
+        System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiCampaign[]> GetCampaignsForAddressBookAsync(int addressBookId, int select, int skip);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetSentCampaignsWithActivitySinceDate", ReplyAction="http://apiconnector.com/v2/ApiService/GetSentCampaignsWithActivitySinceDateRespon" +
             "se")]
@@ -5288,11 +5240,11 @@ namespace dotMailer.EditContact.ApiServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetCampaignContactRoiDetails", ReplyAction="http://apiconnector.com/v2/ApiService/GetCampaignContactRoiDetailsResponse")]
         System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiCampaignContactRoiDetail[]> GetCampaignContactRoiDetailsAsync(int campaignId, int contactId, int select, int skip);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetHardBouncingContacts", ReplyAction="http://apiconnector.com/v2/ApiService/GetHardBouncingContactsResponse")]
-        dotMailer.EditContact.ApiServiceReference.ApiContact[] GetHardBouncingContacts(int campaignId, bool withFullData, int select, int skip);
+        [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetCampaignHardBouncingContacts", ReplyAction="http://apiconnector.com/v2/ApiService/GetCampaignHardBouncingContactsResponse")]
+        dotMailer.EditContact.ApiServiceReference.ApiContact[] GetCampaignHardBouncingContacts(int campaignId, bool withFullData, int select, int skip);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetHardBouncingContacts", ReplyAction="http://apiconnector.com/v2/ApiService/GetHardBouncingContactsResponse")]
-        System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiContact[]> GetHardBouncingContactsAsync(int campaignId, bool withFullData, int select, int skip);
+        [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetCampaignHardBouncingContacts", ReplyAction="http://apiconnector.com/v2/ApiService/GetCampaignHardBouncingContactsResponse")]
+        System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiContact[]> GetCampaignHardBouncingContactsAsync(int campaignId, bool withFullData, int select, int skip);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetDocuments", ReplyAction="http://apiconnector.com/v2/ApiService/GetDocumentsResponse")]
         dotMailer.EditContact.ApiServiceReference.ApiDocument[] GetDocuments(int parentFolderId);
@@ -5313,10 +5265,10 @@ namespace dotMailer.EditContact.ApiServiceReference {
         System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiDocument[]> GetCampaignAttachmentsAsync(int campaignId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/CreateDocumentFolder", ReplyAction="http://apiconnector.com/v2/ApiService/CreateDocumentFolderResponse")]
-        dotMailer.EditContact.ApiServiceReference.ApiDocumentFolder CreateDocumentFolder(dotMailer.EditContact.ApiServiceReference.ApiDocumentFolder folder);
+        dotMailer.EditContact.ApiServiceReference.ApiDocumentFolder CreateDocumentFolder(int folderId, dotMailer.EditContact.ApiServiceReference.ApiDocumentFolder folder);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/CreateDocumentFolder", ReplyAction="http://apiconnector.com/v2/ApiService/CreateDocumentFolderResponse")]
-        System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiDocumentFolder> CreateDocumentFolderAsync(dotMailer.EditContact.ApiServiceReference.ApiDocumentFolder folder);
+        System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiDocumentFolder> CreateDocumentFolderAsync(int folderId, dotMailer.EditContact.ApiServiceReference.ApiDocumentFolder folder);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/UploadDocument", ReplyAction="http://apiconnector.com/v2/ApiService/UploadDocumentResponse")]
         dotMailer.EditContact.ApiServiceReference.ApiDocument UploadDocument(int parentFolderId, string filename, byte[] data);
@@ -5764,12 +5716,12 @@ namespace dotMailer.EditContact.ApiServiceReference {
             return base.Channel.GetImageFolderByIdAsync(folderId);
         }
         
-        public dotMailer.EditContact.ApiServiceReference.ApiImageFolder CreateImageFolder(dotMailer.EditContact.ApiServiceReference.ApiImageFolder folder) {
-            return base.Channel.CreateImageFolder(folder);
+        public dotMailer.EditContact.ApiServiceReference.ApiImageFolder CreateImageFolder(int folderId, dotMailer.EditContact.ApiServiceReference.ApiImageFolder folder) {
+            return base.Channel.CreateImageFolder(folderId, folder);
         }
         
-        public System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiImageFolder> CreateImageFolderAsync(dotMailer.EditContact.ApiServiceReference.ApiImageFolder folder) {
-            return base.Channel.CreateImageFolderAsync(folder);
+        public System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiImageFolder> CreateImageFolderAsync(int folderId, dotMailer.EditContact.ApiServiceReference.ApiImageFolder folder) {
+            return base.Channel.CreateImageFolderAsync(folderId, folder);
         }
         
         public dotMailer.EditContact.ApiServiceReference.ApiImage UploadImage(int folderId, string filename, byte[] data) {
@@ -5796,12 +5748,12 @@ namespace dotMailer.EditContact.ApiServiceReference {
             return base.Channel.GetCampaignsAsync(select, skip);
         }
         
-        public dotMailer.EditContact.ApiServiceReference.ApiCampaign[] GetCampaignsForAddressBook(int addressBookId) {
-            return base.Channel.GetCampaignsForAddressBook(addressBookId);
+        public dotMailer.EditContact.ApiServiceReference.ApiCampaign[] GetCampaignsForAddressBook(int addressBookId, int select, int skip) {
+            return base.Channel.GetCampaignsForAddressBook(addressBookId, select, skip);
         }
         
-        public System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiCampaign[]> GetCampaignsForAddressBookAsync(int addressBookId) {
-            return base.Channel.GetCampaignsForAddressBookAsync(addressBookId);
+        public System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiCampaign[]> GetCampaignsForAddressBookAsync(int addressBookId, int select, int skip) {
+            return base.Channel.GetCampaignsForAddressBookAsync(addressBookId, select, skip);
         }
         
         public dotMailer.EditContact.ApiServiceReference.ApiCampaign[] GetSentCampaignsWithActivitySinceDate(System.DateTime startDate, int select, int skip) {
@@ -5972,12 +5924,12 @@ namespace dotMailer.EditContact.ApiServiceReference {
             return base.Channel.GetCampaignContactRoiDetailsAsync(campaignId, contactId, select, skip);
         }
         
-        public dotMailer.EditContact.ApiServiceReference.ApiContact[] GetHardBouncingContacts(int campaignId, bool withFullData, int select, int skip) {
-            return base.Channel.GetHardBouncingContacts(campaignId, withFullData, select, skip);
+        public dotMailer.EditContact.ApiServiceReference.ApiContact[] GetCampaignHardBouncingContacts(int campaignId, bool withFullData, int select, int skip) {
+            return base.Channel.GetCampaignHardBouncingContacts(campaignId, withFullData, select, skip);
         }
         
-        public System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiContact[]> GetHardBouncingContactsAsync(int campaignId, bool withFullData, int select, int skip) {
-            return base.Channel.GetHardBouncingContactsAsync(campaignId, withFullData, select, skip);
+        public System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiContact[]> GetCampaignHardBouncingContactsAsync(int campaignId, bool withFullData, int select, int skip) {
+            return base.Channel.GetCampaignHardBouncingContactsAsync(campaignId, withFullData, select, skip);
         }
         
         public dotMailer.EditContact.ApiServiceReference.ApiDocument[] GetDocuments(int parentFolderId) {
@@ -6004,12 +5956,12 @@ namespace dotMailer.EditContact.ApiServiceReference {
             return base.Channel.GetCampaignAttachmentsAsync(campaignId);
         }
         
-        public dotMailer.EditContact.ApiServiceReference.ApiDocumentFolder CreateDocumentFolder(dotMailer.EditContact.ApiServiceReference.ApiDocumentFolder folder) {
-            return base.Channel.CreateDocumentFolder(folder);
+        public dotMailer.EditContact.ApiServiceReference.ApiDocumentFolder CreateDocumentFolder(int folderId, dotMailer.EditContact.ApiServiceReference.ApiDocumentFolder folder) {
+            return base.Channel.CreateDocumentFolder(folderId, folder);
         }
         
-        public System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiDocumentFolder> CreateDocumentFolderAsync(dotMailer.EditContact.ApiServiceReference.ApiDocumentFolder folder) {
-            return base.Channel.CreateDocumentFolderAsync(folder);
+        public System.Threading.Tasks.Task<dotMailer.EditContact.ApiServiceReference.ApiDocumentFolder> CreateDocumentFolderAsync(int folderId, dotMailer.EditContact.ApiServiceReference.ApiDocumentFolder folder) {
+            return base.Channel.CreateDocumentFolderAsync(folderId, folder);
         }
         
         public dotMailer.EditContact.ApiServiceReference.ApiDocument UploadDocument(int parentFolderId, string filename, byte[] data) {

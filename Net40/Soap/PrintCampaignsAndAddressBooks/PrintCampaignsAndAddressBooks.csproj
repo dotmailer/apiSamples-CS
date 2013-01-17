@@ -36,6 +36,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataReader.cs" />
@@ -49,6 +50,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Service References\ApiServiceReference\Api.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiServiceReference\Api1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiServiceReference\Api2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiServiceReference\Api3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApiServiceReference\Api4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ApiServiceReference\ApiService.wsdl" />
   </ItemGroup>
   <ItemGroup>

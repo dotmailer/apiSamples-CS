@@ -23,6 +23,11 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="ApiService.wsdl" MetadataType="Wsdl" ID="f143667a-2447-4dd2-a888-4f30f2f88a5d" SourceId="1" SourceUrl="https://apiconnector.com/v2/api.svc" />
+    <MetadataFile FileName="Api.xsd" MetadataType="Schema" ID="c385d94a-8db4-46d2-8a01-85d04b6da76d" SourceId="1" SourceUrl="https://apiconnector.com/v2/Api.svc?xsd=xsd3" />
+    <MetadataFile FileName="Api1.xsd" MetadataType="Schema" ID="251934df-561c-48eb-887d-fd7ba1d286b9" SourceId="1" SourceUrl="https://apiconnector.com/v2/Api.svc?xsd=xsd1" />
+    <MetadataFile FileName="Api2.xsd" MetadataType="Schema" ID="600d6079-330b-4043-bd53-ee6f5615142d" SourceId="1" SourceUrl="https://apiconnector.com/v2/Api.svc?xsd=xsd4" />
+    <MetadataFile FileName="Api3.xsd" MetadataType="Schema" ID="0761e8a3-01de-46e2-84f2-2d449e0c6a81" SourceId="1" SourceUrl="https://apiconnector.com/v2/Api.svc?xsd=xsd2" />
+    <MetadataFile FileName="Api4.xsd" MetadataType="Schema" ID="c531a18d-39a0-4ed9-93b2-b2facc216f95" SourceId="1" SourceUrl="https://apiconnector.com/v2/Api.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

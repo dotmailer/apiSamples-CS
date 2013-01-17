@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/dotMailer.Web.ApiApp.v2.Facade" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/dotMailer.Web.ApiApp.v2.Facade" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://apiconnector.com/v2/api.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://apiconnector.com/v2/Api.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="ApiTransactionalDataImportReport">
     <xs:sequence>
       <xs:element minOccurs="0" name="Faults" nillable="true" type="tns:ArrayOfApiTransactionalDataImportReportFault" />

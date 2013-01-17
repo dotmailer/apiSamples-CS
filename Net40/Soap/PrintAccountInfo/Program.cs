@@ -21,7 +21,7 @@ namespace dotMailer.PrintAccountInfo
 
         private static void PrintResult(ApiAccount account)
         {
-            Console.WriteLine("Account ID - " + account.ID);
+            Console.WriteLine("Account ID - " + account.Id);
             foreach (ApiAccountProperty property in account.Properties)
             {
                 Console.WriteLine("{0} {1} = {2}", property.Type, property.Name, property.Value);

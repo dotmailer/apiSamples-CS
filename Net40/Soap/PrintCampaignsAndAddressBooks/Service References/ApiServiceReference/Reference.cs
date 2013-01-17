@@ -160,6 +160,11 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ApiContactData", Namespace="http://apiconnector.com")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(int[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReport))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReportFault[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReportFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportFaultReason))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContact))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContactOptInTypes))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContactEmailTypes))]
@@ -227,11 +232,6 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalData))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalData[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportStatuses))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(int[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReport))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReportFault[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReportFault))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportFaultReason))]
     public partial class ApiContactData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -287,6 +287,183 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ApiTransactionalDataImportReport", Namespace="http://schemas.datacontract.org/2004/07/dotMailer.Web.ApiApp.v2.Facade")]
+    [System.SerializableAttribute()]
+    public partial class ApiTransactionalDataImportReport : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReportFault[] FaultsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalImportedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalItemsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalRejectedField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReportFault[] Faults {
+            get {
+                return this.FaultsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FaultsField, value) != true)) {
+                    this.FaultsField = value;
+                    this.RaisePropertyChanged("Faults");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalImported {
+            get {
+                return this.TotalImportedField;
+            }
+            set {
+                if ((this.TotalImportedField.Equals(value) != true)) {
+                    this.TotalImportedField = value;
+                    this.RaisePropertyChanged("TotalImported");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalItems {
+            get {
+                return this.TotalItemsField;
+            }
+            set {
+                if ((this.TotalItemsField.Equals(value) != true)) {
+                    this.TotalItemsField = value;
+                    this.RaisePropertyChanged("TotalItems");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalRejected {
+            get {
+                return this.TotalRejectedField;
+            }
+            set {
+                if ((this.TotalRejectedField.Equals(value) != true)) {
+                    this.TotalRejectedField = value;
+                    this.RaisePropertyChanged("TotalRejected");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ApiTransactionalDataImportReportFault", Namespace="http://schemas.datacontract.org/2004/07/dotMailer.Web.ApiApp.v2.Facade")]
+    [System.SerializableAttribute()]
+    public partial class ApiTransactionalDataImportReportFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string KeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportFaultReason ReasonField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Key {
+            get {
+                return this.KeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.KeyField, value) != true)) {
+                    this.KeyField = value;
+                    this.RaisePropertyChanged("Key");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportFaultReason Reason {
+            get {
+                return this.ReasonField;
+            }
+            set {
+                if ((this.ReasonField.Equals(value) != true)) {
+                    this.ReasonField = value;
+                    this.RaisePropertyChanged("Reason");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ApiTransactionalDataImportFaultReason", Namespace="http://schemas.datacontract.org/2004/07/dotMailer.Web.ApiApp.v2.Facade")]
+    public enum ApiTransactionalDataImportFaultReason : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InvalidClientKey = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InvalidContactIdentifier = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InvalidJson = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DuplicateKey = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ContactIdDoesNotExist = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ContactEmailDoesNotExist = 6,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -955,9 +1132,6 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ParentFolderIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder[] ChildFoldersField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -996,20 +1170,7 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ParentFolderId {
-            get {
-                return this.ParentFolderIdField;
-            }
-            set {
-                if ((this.ParentFolderIdField.Equals(value) != true)) {
-                    this.ParentFolderIdField = value;
-                    this.RaisePropertyChanged("ParentFolderId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder[] ChildFolders {
             get {
                 return this.ChildFoldersField;
@@ -1048,9 +1209,6 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ParentFolderIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PathField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -1085,19 +1243,6 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ParentFolderId {
-            get {
-                return this.ParentFolderIdField;
-            }
-            set {
-                if ((this.ParentFolderIdField.Equals(value) != true)) {
-                    this.ParentFolderIdField = value;
-                    this.RaisePropertyChanged("ParentFolderId");
                 }
             }
         }
@@ -3519,6 +3664,11 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ApiCampaignContactRoiDetail", Namespace="http://apiconnector.com")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(int[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReport))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReportFault[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReportFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportFaultReason))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContact))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContactOptInTypes))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContactEmailTypes))]
@@ -3586,11 +3736,6 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalData))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalData[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportStatuses))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(int[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReport))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReportFault[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReportFault))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportFaultReason))]
     public partial class ApiCampaignContactRoiDetail : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -3869,9 +4014,6 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ParentIdField;
-        
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -3900,20 +4042,7 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ParentId {
-            get {
-                return this.ParentIdField;
-            }
-            set {
-                if ((this.ParentIdField.Equals(value) != true)) {
-                    this.ParentIdField = value;
-                    this.RaisePropertyChanged("ParentId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string Name {
             get {
                 return this.NameField;
@@ -3926,7 +4055,7 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocumentFolder[] ChildFolders {
             get {
                 return this.ChildFoldersField;
@@ -4149,6 +4278,11 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ApiDataField", Namespace="http://apiconnector.com")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(int[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReport))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReportFault[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReportFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportFaultReason))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContact))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContactOptInTypes))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContactEmailTypes))]
@@ -4216,11 +4350,6 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalData))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalData[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportStatuses))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(int[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReport))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReportFault[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReportFault))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportFaultReason))]
     public partial class ApiDataField : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -4513,7 +4642,7 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDField;
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiAccountProperty[] PropertiesField;
@@ -4529,14 +4658,14 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID {
+        public int Id {
             get {
-                return this.IDField;
+                return this.IdField;
             }
             set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -4733,183 +4862,6 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Failed = 3,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ApiTransactionalDataImportReport", Namespace="http://schemas.datacontract.org/2004/07/dotMailer.Web.ApiApp.v2.Facade")]
-    [System.SerializableAttribute()]
-    public partial class ApiTransactionalDataImportReport : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReportFault[] FaultsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TotalImportedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TotalItemsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TotalRejectedField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportReportFault[] Faults {
-            get {
-                return this.FaultsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FaultsField, value) != true)) {
-                    this.FaultsField = value;
-                    this.RaisePropertyChanged("Faults");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TotalImported {
-            get {
-                return this.TotalImportedField;
-            }
-            set {
-                if ((this.TotalImportedField.Equals(value) != true)) {
-                    this.TotalImportedField = value;
-                    this.RaisePropertyChanged("TotalImported");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TotalItems {
-            get {
-                return this.TotalItemsField;
-            }
-            set {
-                if ((this.TotalItemsField.Equals(value) != true)) {
-                    this.TotalItemsField = value;
-                    this.RaisePropertyChanged("TotalItems");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TotalRejected {
-            get {
-                return this.TotalRejectedField;
-            }
-            set {
-                if ((this.TotalRejectedField.Equals(value) != true)) {
-                    this.TotalRejectedField = value;
-                    this.RaisePropertyChanged("TotalRejected");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ApiTransactionalDataImportReportFault", Namespace="http://schemas.datacontract.org/2004/07/dotMailer.Web.ApiApp.v2.Facade")]
-    [System.SerializableAttribute()]
-    public partial class ApiTransactionalDataImportReportFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string KeyField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportFaultReason ReasonField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Key {
-            get {
-                return this.KeyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.KeyField, value) != true)) {
-                    this.KeyField = value;
-                    this.RaisePropertyChanged("Key");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiTransactionalDataImportFaultReason Reason {
-            get {
-                return this.ReasonField;
-            }
-            set {
-                if ((this.ReasonField.Equals(value) != true)) {
-                    this.ReasonField = value;
-                    this.RaisePropertyChanged("Reason");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ApiTransactionalDataImportFaultReason", Namespace="http://schemas.datacontract.org/2004/07/dotMailer.Web.ApiApp.v2.Facade")]
-    public enum ApiTransactionalDataImportFaultReason : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        InvalidClientKey = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        InvalidContactIdentifier = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        InvalidJson = 3,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DuplicateKey = 4,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ContactIdDoesNotExist = 5,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ContactEmailDoesNotExist = 6,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -5129,10 +5081,10 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
         System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder> GetImageFolderByIdAsync(int folderId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/CreateImageFolder", ReplyAction="http://apiconnector.com/v2/ApiService/CreateImageFolderResponse")]
-        dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder CreateImageFolder(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder folder);
+        dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder CreateImageFolder(int folderId, dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder folder);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/CreateImageFolder", ReplyAction="http://apiconnector.com/v2/ApiService/CreateImageFolderResponse")]
-        System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder> CreateImageFolderAsync(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder folder);
+        System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder> CreateImageFolderAsync(int folderId, dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder folder);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/UploadImage", ReplyAction="http://apiconnector.com/v2/ApiService/UploadImageResponse")]
         dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImage UploadImage(int folderId, string filename, byte[] data);
@@ -5153,10 +5105,10 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
         System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiCampaign[]> GetCampaignsAsync(int select, int skip);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetCampaignsForAddressBook", ReplyAction="http://apiconnector.com/v2/ApiService/GetCampaignsForAddressBookResponse")]
-        dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiCampaign[] GetCampaignsForAddressBook(int addressBookId);
+        dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiCampaign[] GetCampaignsForAddressBook(int addressBookId, int select, int skip);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetCampaignsForAddressBook", ReplyAction="http://apiconnector.com/v2/ApiService/GetCampaignsForAddressBookResponse")]
-        System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiCampaign[]> GetCampaignsForAddressBookAsync(int addressBookId);
+        System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiCampaign[]> GetCampaignsForAddressBookAsync(int addressBookId, int select, int skip);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetSentCampaignsWithActivitySinceDate", ReplyAction="http://apiconnector.com/v2/ApiService/GetSentCampaignsWithActivitySinceDateRespon" +
             "se")]
@@ -5288,11 +5240,11 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetCampaignContactRoiDetails", ReplyAction="http://apiconnector.com/v2/ApiService/GetCampaignContactRoiDetailsResponse")]
         System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiCampaignContactRoiDetail[]> GetCampaignContactRoiDetailsAsync(int campaignId, int contactId, int select, int skip);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetHardBouncingContacts", ReplyAction="http://apiconnector.com/v2/ApiService/GetHardBouncingContactsResponse")]
-        dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContact[] GetHardBouncingContacts(int campaignId, bool withFullData, int select, int skip);
+        [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetCampaignHardBouncingContacts", ReplyAction="http://apiconnector.com/v2/ApiService/GetCampaignHardBouncingContactsResponse")]
+        dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContact[] GetCampaignHardBouncingContacts(int campaignId, bool withFullData, int select, int skip);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetHardBouncingContacts", ReplyAction="http://apiconnector.com/v2/ApiService/GetHardBouncingContactsResponse")]
-        System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContact[]> GetHardBouncingContactsAsync(int campaignId, bool withFullData, int select, int skip);
+        [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetCampaignHardBouncingContacts", ReplyAction="http://apiconnector.com/v2/ApiService/GetCampaignHardBouncingContactsResponse")]
+        System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContact[]> GetCampaignHardBouncingContactsAsync(int campaignId, bool withFullData, int select, int skip);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/GetDocuments", ReplyAction="http://apiconnector.com/v2/ApiService/GetDocumentsResponse")]
         dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocument[] GetDocuments(int parentFolderId);
@@ -5313,10 +5265,10 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
         System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocument[]> GetCampaignAttachmentsAsync(int campaignId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/CreateDocumentFolder", ReplyAction="http://apiconnector.com/v2/ApiService/CreateDocumentFolderResponse")]
-        dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocumentFolder CreateDocumentFolder(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocumentFolder folder);
+        dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocumentFolder CreateDocumentFolder(int folderId, dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocumentFolder folder);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/CreateDocumentFolder", ReplyAction="http://apiconnector.com/v2/ApiService/CreateDocumentFolderResponse")]
-        System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocumentFolder> CreateDocumentFolderAsync(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocumentFolder folder);
+        System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocumentFolder> CreateDocumentFolderAsync(int folderId, dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocumentFolder folder);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://apiconnector.com/v2/ApiService/UploadDocument", ReplyAction="http://apiconnector.com/v2/ApiService/UploadDocumentResponse")]
         dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocument UploadDocument(int parentFolderId, string filename, byte[] data);
@@ -5764,12 +5716,12 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
             return base.Channel.GetImageFolderByIdAsync(folderId);
         }
         
-        public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder CreateImageFolder(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder folder) {
-            return base.Channel.CreateImageFolder(folder);
+        public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder CreateImageFolder(int folderId, dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder folder) {
+            return base.Channel.CreateImageFolder(folderId, folder);
         }
         
-        public System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder> CreateImageFolderAsync(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder folder) {
-            return base.Channel.CreateImageFolderAsync(folder);
+        public System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder> CreateImageFolderAsync(int folderId, dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImageFolder folder) {
+            return base.Channel.CreateImageFolderAsync(folderId, folder);
         }
         
         public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiImage UploadImage(int folderId, string filename, byte[] data) {
@@ -5796,12 +5748,12 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
             return base.Channel.GetCampaignsAsync(select, skip);
         }
         
-        public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiCampaign[] GetCampaignsForAddressBook(int addressBookId) {
-            return base.Channel.GetCampaignsForAddressBook(addressBookId);
+        public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiCampaign[] GetCampaignsForAddressBook(int addressBookId, int select, int skip) {
+            return base.Channel.GetCampaignsForAddressBook(addressBookId, select, skip);
         }
         
-        public System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiCampaign[]> GetCampaignsForAddressBookAsync(int addressBookId) {
-            return base.Channel.GetCampaignsForAddressBookAsync(addressBookId);
+        public System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiCampaign[]> GetCampaignsForAddressBookAsync(int addressBookId, int select, int skip) {
+            return base.Channel.GetCampaignsForAddressBookAsync(addressBookId, select, skip);
         }
         
         public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiCampaign[] GetSentCampaignsWithActivitySinceDate(System.DateTime startDate, int select, int skip) {
@@ -5972,12 +5924,12 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
             return base.Channel.GetCampaignContactRoiDetailsAsync(campaignId, contactId, select, skip);
         }
         
-        public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContact[] GetHardBouncingContacts(int campaignId, bool withFullData, int select, int skip) {
-            return base.Channel.GetHardBouncingContacts(campaignId, withFullData, select, skip);
+        public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContact[] GetCampaignHardBouncingContacts(int campaignId, bool withFullData, int select, int skip) {
+            return base.Channel.GetCampaignHardBouncingContacts(campaignId, withFullData, select, skip);
         }
         
-        public System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContact[]> GetHardBouncingContactsAsync(int campaignId, bool withFullData, int select, int skip) {
-            return base.Channel.GetHardBouncingContactsAsync(campaignId, withFullData, select, skip);
+        public System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContact[]> GetCampaignHardBouncingContactsAsync(int campaignId, bool withFullData, int select, int skip) {
+            return base.Channel.GetCampaignHardBouncingContactsAsync(campaignId, withFullData, select, skip);
         }
         
         public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocument[] GetDocuments(int parentFolderId) {
@@ -6004,12 +5956,12 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference {
             return base.Channel.GetCampaignAttachmentsAsync(campaignId);
         }
         
-        public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocumentFolder CreateDocumentFolder(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocumentFolder folder) {
-            return base.Channel.CreateDocumentFolder(folder);
+        public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocumentFolder CreateDocumentFolder(int folderId, dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocumentFolder folder) {
+            return base.Channel.CreateDocumentFolder(folderId, folder);
         }
         
-        public System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocumentFolder> CreateDocumentFolderAsync(dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocumentFolder folder) {
-            return base.Channel.CreateDocumentFolderAsync(folder);
+        public System.Threading.Tasks.Task<dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocumentFolder> CreateDocumentFolderAsync(int folderId, dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocumentFolder folder) {
+            return base.Channel.CreateDocumentFolderAsync(folderId, folder);
         }
         
         public dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiDocument UploadDocument(int parentFolderId, string filename, byte[] data) {

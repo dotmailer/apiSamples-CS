@@ -13,7 +13,7 @@ namespace dotMailer.PrintAccountInfo
         {
             AppDomain.CurrentDomain.UnhandledException += PrintUnhandledException;
 
-            Secure_ApiService client = GetSoapClient();
+            ApiService client = GetSoapClient();
 
             ApiAccount account = client.GetCurrentAccountInfo();
             PrintResult(account);
@@ -21,16 +21,16 @@ namespace dotMailer.PrintAccountInfo
 
         private static void PrintResult(ApiAccount account)
         {
-            Console.WriteLine("Account ID - " + account.ID);
+            Console.WriteLine("Account ID - " + account.Id);
             foreach (ApiAccountProperty property in account.Properties)
             {
                 Console.WriteLine("{0} {1} = {2}", property.Type, property.Name, property.Value);
             }
         }
 
-        private static Secure_ApiService GetSoapClient()
+        private static ApiService GetSoapClient()
         {
-            Secure_ApiService client = new Secure_ApiService();
+            ApiService client = new ApiService();
             client.Credentials = new NetworkCredential(UserName, Password);
             return client;
         }

@@ -23,11 +23,11 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="ApiService.wsdl" MetadataType="Wsdl" ID="c443084a-5860-446b-9d09-71e0b5a133e4" SourceId="1" SourceUrl="https://apiconnector.com/v2/api.svc" />
-    <MetadataFile FileName="api.xsd" MetadataType="Schema" ID="040e831c-8d33-470a-820e-af112b16041a" SourceId="1" SourceUrl="https://apiconnector.com/v2/api.svc?xsd=xsd1" />
-    <MetadataFile FileName="api1.xsd" MetadataType="Schema" ID="a16651b6-c834-4873-9ce8-acf42b496328" SourceId="1" SourceUrl="https://apiconnector.com/v2/api.svc?xsd=xsd4" />
-    <MetadataFile FileName="api2.xsd" MetadataType="Schema" ID="1bad3e2a-d25e-4506-86f8-241e501f2afd" SourceId="1" SourceUrl="https://apiconnector.com/v2/api.svc?xsd=xsd2" />
-    <MetadataFile FileName="api3.xsd" MetadataType="Schema" ID="300b013e-8273-451c-a801-a741ef6126ea" SourceId="1" SourceUrl="https://apiconnector.com/v2/api.svc?xsd=xsd0" />
-    <MetadataFile FileName="api4.xsd" MetadataType="Schema" ID="78319a87-e78a-444c-a0b3-d1efeb1313e3" SourceId="1" SourceUrl="https://apiconnector.com/v2/api.svc?xsd=xsd3" />
+    <MetadataFile FileName="Api5.xsd" MetadataType="Schema" ID="394017bc-dba4-47b5-96c2-c8727d6a8040" SourceId="1" SourceUrl="https://apiconnector.com/v2/Api.svc?xsd=xsd3" />
+    <MetadataFile FileName="Api51.xsd" MetadataType="Schema" ID="e6fafa97-d177-4a26-b639-794ebf28b7e4" SourceId="1" SourceUrl="https://apiconnector.com/v2/Api.svc?xsd=xsd1" />
+    <MetadataFile FileName="Api52.xsd" MetadataType="Schema" ID="29bd2116-c5a5-4e36-b0d0-c2ab73a3bf4a" SourceId="1" SourceUrl="https://apiconnector.com/v2/Api.svc?xsd=xsd4" />
+    <MetadataFile FileName="Api53.xsd" MetadataType="Schema" ID="daaa1165-ecdf-4af1-944e-fab468fc04ae" SourceId="1" SourceUrl="https://apiconnector.com/v2/Api.svc?xsd=xsd2" />
+    <MetadataFile FileName="Api54.xsd" MetadataType="Schema" ID="e7593d00-4d27-4498-b332-1b2b330ef454" SourceId="1" SourceUrl="https://apiconnector.com/v2/Api.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://apiconnector.com" elementFormDefault="qualified" targetNamespace="http://apiconnector.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://apiconnector.com/v2/api.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import schemaLocation="https://apiconnector.com/v2/api.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://apiconnector.com/v2/Api.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://apiconnector.com/v2/Api.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="ApiContact">
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="xs:int" />
@@ -375,7 +375,6 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ParentFolderId" type="xs:int" />
       <xs:element minOccurs="0" name="ChildFolders" nillable="true" type="tns:ArrayOfApiImageFolder" />
     </xs:sequence>
   </xs:complexType>
@@ -384,7 +383,6 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ParentFolderId" type="xs:int" />
       <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -818,7 +816,6 @@
   <xs:complexType name="ApiDocumentFolder">
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="ParentId" type="xs:int" />
       <xs:element name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ChildFolders" nillable="true" type="tns:ArrayOfApiDocumentFolder" />
     </xs:sequence>
@@ -956,7 +953,7 @@
   <xs:element name="ArrayOfApiDataField" nillable="true" type="tns:ArrayOfApiDataField" />
   <xs:complexType name="ApiAccount">
     <xs:sequence>
-      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Properties" nillable="true" type="tns:ArrayOfApiAccountProperty" />
     </xs:sequence>
   </xs:complexType>

@@ -26,7 +26,7 @@ namespace dotMailer.EditContact.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://apiconnector.com/v2/api.svc")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://apiconnector.com/v2/Api.svc")]
         public string EditContact_dotMailer_ApiService {
             get {
                 return ((string)(this["EditContact_dotMailer_ApiService"]));

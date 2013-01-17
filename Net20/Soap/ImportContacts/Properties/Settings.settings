@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="ImportContacts_dotMailer_ApiService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">https://apiconnector.com/v2/api.svc</Value>
+      <Value Profile="(Default)">https://apiconnector.com/v2/Api.svc</Value>
     </Setting>
   </Settings>
 </SettingsFile>

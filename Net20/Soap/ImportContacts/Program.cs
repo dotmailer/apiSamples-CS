@@ -12,7 +12,7 @@ namespace dotMailer.ImportContacts
         private const string Password = "{ Your password here }";
         private const int AddressBookId = 0; //Your address book here
 
-        private static Secure_ApiService _client;
+        private static ApiService _client;
 
         static void Main(string[] args)
         {
@@ -81,9 +81,9 @@ namespace dotMailer.ImportContacts
             }
         }
 
-        private static Secure_ApiService GetSoapClient()
+        private static ApiService GetSoapClient()
         {
-            Secure_ApiService client = new Secure_ApiService();
+            ApiService client = new ApiService();
             client.Credentials = new NetworkCredential(UserName, Password);
             return client;
         }

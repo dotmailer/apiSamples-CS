@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://apiconnector.com/v2" elementFormDefault="qualified" targetNamespace="http://apiconnector.com/v2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://apiconnector.com/v2/api.svc?xsd=xsd2" namespace="http://apiconnector.com" />
-  <xs:import schemaLocation="https://apiconnector.com/v2/api.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import schemaLocation="https://apiconnector.com/v2/api.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/dotMailer.Web.ApiApp.v2.Facade" />
+  <xs:import schemaLocation="https://apiconnector.com/v2/Api.svc?xsd=xsd2" namespace="http://apiconnector.com" />
+  <xs:import schemaLocation="https://apiconnector.com/v2/Api.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://apiconnector.com/v2/Api.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/dotMailer.Web.ApiApp.v2.Facade" />
   <xs:element name="GetContactById">
     <xs:complexType>
       <xs:sequence>
@@ -516,6 +516,7 @@
   <xs:element name="CreateImageFolder">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="folderId" type="xs:int" />
         <xs:element xmlns:q40="http://apiconnector.com" minOccurs="0" name="folder" nillable="true" type="q40:ApiImageFolder" />
       </xs:sequence>
     </xs:complexType>
@@ -576,6 +577,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="addressBookId" type="xs:int" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -918,7 +921,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetHardBouncingContacts">
+  <xs:element name="GetCampaignHardBouncingContacts">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="campaignId" type="xs:int" />
@@ -928,10 +931,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetHardBouncingContactsResponse">
+  <xs:element name="GetCampaignHardBouncingContactsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q71="http://apiconnector.com" minOccurs="0" name="GetHardBouncingContactsResult" nillable="true" type="q71:ArrayOfApiContact" />
+        <xs:element xmlns:q71="http://apiconnector.com" minOccurs="0" name="GetCampaignHardBouncingContactsResult" nillable="true" type="q71:ArrayOfApiContact" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -978,6 +981,7 @@
   <xs:element name="CreateDocumentFolder">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="folderId" type="xs:int" />
         <xs:element xmlns:q75="http://apiconnector.com" minOccurs="0" name="folder" nillable="true" type="q75:ApiDocumentFolder" />
       </xs:sequence>
     </xs:complexType>

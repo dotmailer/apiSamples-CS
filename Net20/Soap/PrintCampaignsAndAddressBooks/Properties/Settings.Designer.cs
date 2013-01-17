@@ -26,7 +26,7 @@ namespace dotMailer.PrintCampaignsAndAddressBooks.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://apiconnector.com/v2/api.svc")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://apiconnector.com/v2/Api.svc")]
         public string PrintCampaignsAndAddressBooks_dotMailer_ApiService {
             get {
                 return ((string)(this["PrintCampaignsAndAddressBooks_dotMailer_ApiService"]));

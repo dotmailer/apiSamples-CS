@@ -49,19 +49,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Service References\ApiServiceReference\api.xsd">
+    <None Include="Service References\ApiServiceReference\Api5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiServiceReference\api1.xsd">
+    <None Include="Service References\ApiServiceReference\Api51.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiServiceReference\api2.xsd">
+    <None Include="Service References\ApiServiceReference\Api52.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiServiceReference\api3.xsd">
+    <None Include="Service References\ApiServiceReference\Api53.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiServiceReference\api4.xsd">
+    <None Include="Service References\ApiServiceReference\Api54.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ApiServiceReference\ApiService.wsdl" />
