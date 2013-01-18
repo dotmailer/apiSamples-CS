@@ -2,7 +2,6 @@
 <xs:schema xmlns:tns="http://apiconnector.com/v2" elementFormDefault="qualified" targetNamespace="http://apiconnector.com/v2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="https://apiconnector.com/v2/Api.svc?xsd=xsd2" namespace="http://apiconnector.com" />
   <xs:import schemaLocation="https://apiconnector.com/v2/Api.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import schemaLocation="https://apiconnector.com/v2/Api.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/dotMailer.Web.ApiApp.v2.Facade" />
   <xs:element name="GetContactById">
     <xs:complexType>
       <xs:sequence>
@@ -996,7 +995,7 @@
   <xs:element name="UploadDocument">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="parentFolderId" type="xs:int" />
+        <xs:element minOccurs="0" name="folderId" type="xs:int" />
         <xs:element minOccurs="0" name="filename" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="data" nillable="true" type="xs:base64Binary" />
       </xs:sequence>
@@ -1236,7 +1235,7 @@
   <xs:element name="GetTransactionalDataImportReportResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/dotMailer.Web.ApiApp.v2.Facade" minOccurs="0" name="GetTransactionalDataImportReportResult" nillable="true" type="q98:ApiTransactionalDataImportReport" />
+        <xs:element xmlns:q98="http://apiconnector.com" minOccurs="0" name="GetTransactionalDataImportReportResult" nillable="true" type="q98:ApiTransactionalDataImportReport" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

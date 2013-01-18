@@ -27,7 +27,7 @@ namespace dotMailer.PrintCampaignsWithActivity.dotMailer {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.17929")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="ApiService", Namespace="http://apiconnector.com/v2")]
+    [System.Web.Services.WebServiceBindingAttribute(Name="Secure_ApiService", Namespace="http://apiconnector.com/v2")]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ApiContactData[]))]
     public partial class ApiService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
@@ -2917,28 +2917,28 @@ namespace dotMailer.PrintCampaignsWithActivity.dotMailer {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://apiconnector.com/v2/ApiService/UploadDocument", RequestNamespace="http://apiconnector.com/v2", ResponseNamespace="http://apiconnector.com/v2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ApiDocument UploadDocument(int parentFolderId, [System.Xml.Serialization.XmlIgnoreAttribute()] bool parentFolderIdSpecified, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string filename, [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary", IsNullable=true)] byte[] data) {
+        public ApiDocument UploadDocument(int folderId, [System.Xml.Serialization.XmlIgnoreAttribute()] bool folderIdSpecified, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string filename, [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary", IsNullable=true)] byte[] data) {
             object[] results = this.Invoke("UploadDocument", new object[] {
-                        parentFolderId,
-                        parentFolderIdSpecified,
+                        folderId,
+                        folderIdSpecified,
                         filename,
                         data});
             return ((ApiDocument)(results[0]));
         }
         
         /// <remarks/>
-        public void UploadDocumentAsync(int parentFolderId, bool parentFolderIdSpecified, string filename, byte[] data) {
-            this.UploadDocumentAsync(parentFolderId, parentFolderIdSpecified, filename, data, null);
+        public void UploadDocumentAsync(int folderId, bool folderIdSpecified, string filename, byte[] data) {
+            this.UploadDocumentAsync(folderId, folderIdSpecified, filename, data, null);
         }
         
         /// <remarks/>
-        public void UploadDocumentAsync(int parentFolderId, bool parentFolderIdSpecified, string filename, byte[] data, object userState) {
+        public void UploadDocumentAsync(int folderId, bool folderIdSpecified, string filename, byte[] data, object userState) {
             if ((this.UploadDocumentOperationCompleted == null)) {
                 this.UploadDocumentOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUploadDocumentOperationCompleted);
             }
             this.InvokeAsync("UploadDocument", new object[] {
-                        parentFolderId,
-                        parentFolderIdSpecified,
+                        folderId,
+                        folderIdSpecified,
                         filename,
                         data}, this.UploadDocumentOperationCompleted, userState);
         }
@@ -3842,7 +3842,7 @@ namespace dotMailer.PrintCampaignsWithActivity.dotMailer {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/dotMailer.Web.ApiApp.v2.Facade")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://apiconnector.com")]
     public partial class ApiTransactionalDataImportReportFault {
         
         private string keyField;
@@ -3887,7 +3887,7 @@ namespace dotMailer.PrintCampaignsWithActivity.dotMailer {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/dotMailer.Web.ApiApp.v2.Facade")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://apiconnector.com")]
     public enum ApiTransactionalDataImportFaultReason {
         
         /// <remarks/>
@@ -3914,31 +3914,41 @@ namespace dotMailer.PrintCampaignsWithActivity.dotMailer {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/dotMailer.Web.ApiApp.v2.Facade")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://apiconnector.com")]
     public partial class ApiTransactionalDataImportReport {
-        
-        private ApiTransactionalDataImportReportFault[] faultsField;
-        
-        private int totalImportedField;
-        
-        private bool totalImportedFieldSpecified;
         
         private int totalItemsField;
         
         private bool totalItemsFieldSpecified;
         
+        private int totalImportedField;
+        
+        private bool totalImportedFieldSpecified;
+        
         private int totalRejectedField;
         
         private bool totalRejectedFieldSpecified;
         
+        private ApiTransactionalDataImportReportFault[] faultsField;
+        
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public ApiTransactionalDataImportReportFault[] Faults {
+        public int TotalItems {
             get {
-                return this.faultsField;
+                return this.totalItemsField;
             }
             set {
-                this.faultsField = value;
+                this.totalItemsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TotalItemsSpecified {
+            get {
+                return this.totalItemsFieldSpecified;
+            }
+            set {
+                this.totalItemsFieldSpecified = value;
             }
         }
         
@@ -3964,27 +3974,6 @@ namespace dotMailer.PrintCampaignsWithActivity.dotMailer {
         }
         
         /// <remarks/>
-        public int TotalItems {
-            get {
-                return this.totalItemsField;
-            }
-            set {
-                this.totalItemsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool TotalItemsSpecified {
-            get {
-                return this.totalItemsFieldSpecified;
-            }
-            set {
-                this.totalItemsFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
         public int TotalRejected {
             get {
                 return this.totalRejectedField;
@@ -4002,6 +3991,17 @@ namespace dotMailer.PrintCampaignsWithActivity.dotMailer {
             }
             set {
                 this.totalRejectedFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public ApiTransactionalDataImportReportFault[] Faults {
+            get {
+                return this.faultsField;
+            }
+            set {
+                this.faultsField = value;
             }
         }
     }

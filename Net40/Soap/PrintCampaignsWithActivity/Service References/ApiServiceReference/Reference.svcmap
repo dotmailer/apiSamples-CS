@@ -25,7 +25,6 @@
     <MetadataFile FileName="ApiService.wsdl" MetadataType="Wsdl" ID="141b27a3-428d-421a-bc0b-f2dfadeca1f9" SourceId="1" SourceUrl="https://apiconnector.com/v2/api.svc" />
     <MetadataFile FileName="Api.xsd" MetadataType="Schema" ID="2e40f68c-fa94-4aef-a8f1-199b5744faf8" SourceId="1" SourceUrl="https://apiconnector.com/v2/Api.svc?xsd=xsd3" />
     <MetadataFile FileName="Api1.xsd" MetadataType="Schema" ID="89bb52d6-16d5-4c11-9fd5-26f856e31f87" SourceId="1" SourceUrl="https://apiconnector.com/v2/Api.svc?xsd=xsd1" />
-    <MetadataFile FileName="Api2.xsd" MetadataType="Schema" ID="820a1843-48fe-4546-abac-0be64b887ba1" SourceId="1" SourceUrl="https://apiconnector.com/v2/Api.svc?xsd=xsd4" />
     <MetadataFile FileName="Api3.xsd" MetadataType="Schema" ID="c2712a2f-63b4-483c-b2f4-d6f48c80b0da" SourceId="1" SourceUrl="https://apiconnector.com/v2/Api.svc?xsd=xsd2" />
     <MetadataFile FileName="Api4.xsd" MetadataType="Schema" ID="5d3df070-cc62-4aa3-9d26-b1432d142adb" SourceId="1" SourceUrl="https://apiconnector.com/v2/Api.svc?xsd=xsd0" />
   </Metadata>

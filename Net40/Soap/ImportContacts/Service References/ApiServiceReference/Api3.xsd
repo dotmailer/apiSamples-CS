@@ -995,4 +995,73 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="ApiTransactionalDataImportStatuses" nillable="true" type="tns:ApiTransactionalDataImportStatuses" />
+  <xs:complexType name="ApiTransactionalDataImportReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TotalItems" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalImported" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalRejected" type="xs:int" />
+      <xs:element minOccurs="0" name="Faults" nillable="true" type="tns:ArrayOfApiTransactionalDataImportReportFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiTransactionalDataImportReport" nillable="true" type="tns:ApiTransactionalDataImportReport" />
+  <xs:complexType name="ArrayOfApiTransactionalDataImportReportFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiTransactionalDataImportReportFault" nillable="true" type="tns:ApiTransactionalDataImportReportFault" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApiTransactionalDataImportReportFault" nillable="true" type="tns:ArrayOfApiTransactionalDataImportReportFault" />
+  <xs:complexType name="ApiTransactionalDataImportReportFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Reason" type="tns:ApiTransactionalDataImportFaultReason" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiTransactionalDataImportReportFault" nillable="true" type="tns:ApiTransactionalDataImportReportFault" />
+  <xs:simpleType name="ApiTransactionalDataImportFaultReason">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InvalidClientKey">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InvalidContactIdentifier">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InvalidJson">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DuplicateKey">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ContactIdDoesNotExist">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ContactEmailDoesNotExist">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ApiTransactionalDataImportFaultReason" nillable="true" type="tns:ApiTransactionalDataImportFaultReason" />
 </xs:schema>

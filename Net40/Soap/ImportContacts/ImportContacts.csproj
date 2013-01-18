@@ -58,9 +58,6 @@
     <None Include="Service References\ApiServiceReference\Api1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiServiceReference\Api2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ApiServiceReference\Api3.xsd">
       <SubType>Designer</SubType>
     </None>

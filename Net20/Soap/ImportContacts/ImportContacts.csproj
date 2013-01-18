@@ -90,9 +90,6 @@
     <None Include="Web References\dotMailer\api2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Web References\dotMailer\api3.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Web References\dotMailer\ApiAccount.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>

@@ -1,9 +1,1312 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="ArrayOfint">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint" />
+<xs:schema xmlns:tns="http://apiconnector.com/v2" elementFormDefault="qualified" targetNamespace="http://apiconnector.com/v2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://apiconnector.com/v2/Api.svc?xsd=xsd2" namespace="http://apiconnector.com" />
+  <xs:import schemaLocation="https://apiconnector.com/v2/Api.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="GetContactById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContactByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://apiconnector.com" minOccurs="0" name="GetContactByIdResult" nillable="true" type="q1:ApiContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContactByEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContactByEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://apiconnector.com" minOccurs="0" name="GetContactByEmailResult" nillable="true" type="q2:ApiContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContactStatusByEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContactStatusByEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://apiconnector.com" minOccurs="0" name="GetContactStatusByEmailResult" type="q3:ApiContactStatuses" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://apiconnector.com" minOccurs="0" name="apiContact" nillable="true" type="q4:ApiContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://apiconnector.com" minOccurs="0" name="CreateContactResult" nillable="true" type="q5:ApiContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://apiconnector.com" minOccurs="0" name="apiContact" nillable="true" type="q6:ApiContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://apiconnector.com" minOccurs="0" name="UpdateContactResult" nillable="true" type="q7:ApiContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAddressBooks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAddressBooksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://apiconnector.com" minOccurs="0" name="GetAddressBooksResult" nillable="true" type="q8:ArrayOfApiAddressBook" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAddressBook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://apiconnector.com" minOccurs="0" name="apiAddressBook" nillable="true" type="q9:ApiAddressBook" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAddressBookResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://apiconnector.com" minOccurs="0" name="CreateAddressBookResult" nillable="true" type="q10:ApiAddressBook" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAddressBook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://apiconnector.com" minOccurs="0" name="apiAddressBook" nillable="true" type="q11:ApiAddressBook" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAddressBookResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://apiconnector.com" minOccurs="0" name="UpdateAddressBookResult" nillable="true" type="q12:ApiAddressBook" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAddressBook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAddressBookResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContacts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="withFullData" type="xs:boolean" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://apiconnector.com" minOccurs="0" name="GetContactsResult" nillable="true" type="q13:ArrayOfApiContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContactsInAddressBook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addressBookId" type="xs:int" />
+        <xs:element minOccurs="0" name="withFullData" type="xs:boolean" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContactsInAddressBookResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://apiconnector.com" minOccurs="0" name="GetContactsInAddressBookResult" nillable="true" type="q14:ArrayOfApiContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAddressBookContactCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAddressBookContactCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAddressBookContactCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddContactToAddressBook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addressBookId" type="xs:int" />
+        <xs:element xmlns:q15="http://apiconnector.com" minOccurs="0" name="apiContact" nillable="true" type="q15:ApiContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddContactToAddressBookResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://apiconnector.com" minOccurs="0" name="AddContactToAddressBookResult" nillable="true" type="q16:ApiContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteContactResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteContactFromAddressBook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addressBookId" type="xs:int" />
+        <xs:element minOccurs="0" name="contactId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteContactFromAddressBookResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAllContactsFromAddressBook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addressBookId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAllContactsFromAddressBookResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnsubscribeContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://apiconnector.com" minOccurs="0" name="apiContact" nillable="true" type="q17:ApiContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnsubscribeContactResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnsubscribeContactFromAddressBook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addressBookId" type="xs:int" />
+        <xs:element xmlns:q18="http://apiconnector.com" minOccurs="0" name="apiContact" nillable="true" type="q18:ApiContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnsubscribeContactFromAddressBookResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResubscribeContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://apiconnector.com" minOccurs="0" name="apiContactResubscription" nillable="true" type="q19:ApiContactResubscription" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResubscribeContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://apiconnector.com" minOccurs="0" name="ResubscribeContactResult" type="q20:ApiResubscribeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResubscribeContactToAddressBook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addressBookId" type="xs:int" />
+        <xs:element xmlns:q21="http://apiconnector.com" minOccurs="0" name="apiContactResubscription" nillable="true" type="q21:ApiContactResubscription" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResubscribeContactToAddressBookResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://apiconnector.com" minOccurs="0" name="ResubscribeContactToAddressBookResult" type="q22:ApiResubscribeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModifiedContacts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="withFullData" type="xs:boolean" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModifiedContactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://apiconnector.com" minOccurs="0" name="GetModifiedContactsResult" nillable="true" type="q23:ArrayOfApiContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModifiedContactsInAddressBook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addressBookId" type="xs:int" />
+        <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="withFullData" type="xs:boolean" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModifiedContactsInAddressBookResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://apiconnector.com" minOccurs="0" name="GetModifiedContactsInAddressBookResult" nillable="true" type="q24:ArrayOfApiContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewContacts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="withFullData" type="xs:boolean" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewContactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://apiconnector.com" minOccurs="0" name="GetNewContactsResult" nillable="true" type="q25:ArrayOfApiContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAddressBooksForContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="contactId" type="xs:int" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAddressBooksForContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://apiconnector.com" minOccurs="0" name="GetAddressBooksForContactResult" nillable="true" type="q26:ArrayOfApiAddressBook" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAddressBooksForCampaign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAddressBooksForCampaignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://apiconnector.com" minOccurs="0" name="GetAddressBooksForCampaignResult" nillable="true" type="q27:ArrayOfApiAddressBook" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSuppressedContacts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSuppressedContactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://apiconnector.com" minOccurs="0" name="GetSuppressedContactsResult" nillable="true" type="q28:ArrayOfApiContactSuppression" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnsubscribedContacts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnsubscribedContactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://apiconnector.com" minOccurs="0" name="GetUnsubscribedContactsResult" nillable="true" type="q29:ArrayOfApiContactSuppression" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnsubscribedContactsInAddressBook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addressBookId" type="xs:int" />
+        <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnsubscribedContactsInAddressBookResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://apiconnector.com" minOccurs="0" name="GetUnsubscribedContactsInAddressBookResult" nillable="true" type="q30:ArrayOfApiContactSuppression" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportContacts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="data" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="dataType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportContactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://apiconnector.com" minOccurs="0" name="ImportContactsResult" nillable="true" type="q31:ApiContactImport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportContactsToAddressBook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addressBookId" type="xs:int" />
+        <xs:element minOccurs="0" name="data" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="dataType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportContactsToAddressBookResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://apiconnector.com" minOccurs="0" name="ImportContactsToAddressBookResult" nillable="true" type="q32:ApiContactImport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContactImportProgress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="importId" type="q33:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContactImportProgressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://apiconnector.com" minOccurs="0" name="GetContactImportProgressResult" nillable="true" type="q34:ApiContactImport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContactImportReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="importId" type="q35:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContactImportReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://apiconnector.com" minOccurs="0" name="GetContactImportReportResult" nillable="true" type="q36:ApiContactImportReport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContactImportReportFaults">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="importId" type="q37:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContactImportReportFaultsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetContactImportReportFaultsResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetImageFolders">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetImageFoldersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://apiconnector.com" minOccurs="0" name="GetImageFoldersResult" nillable="true" type="q38:ArrayOfApiImageFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetImageFolderById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="folderId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetImageFolderByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://apiconnector.com" minOccurs="0" name="GetImageFolderByIdResult" nillable="true" type="q39:ApiImageFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateImageFolder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="folderId" type="xs:int" />
+        <xs:element xmlns:q40="http://apiconnector.com" minOccurs="0" name="folder" nillable="true" type="q40:ApiImageFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateImageFolderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://apiconnector.com" minOccurs="0" name="CreateImageFolderResult" nillable="true" type="q41:ApiImageFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadImage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="folderId" type="xs:int" />
+        <xs:element minOccurs="0" name="filename" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="data" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadImageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://apiconnector.com" minOccurs="0" name="UploadImageResult" nillable="true" type="q42:ApiImage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://apiconnector.com" minOccurs="0" name="GetCampaignByIdResult" nillable="true" type="q43:ApiCampaign" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaigns">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://apiconnector.com" minOccurs="0" name="GetCampaignsResult" nillable="true" type="q44:ArrayOfApiCampaign" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignsForAddressBook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addressBookId" type="xs:int" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignsForAddressBookResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://apiconnector.com" minOccurs="0" name="GetCampaignsForAddressBookResult" nillable="true" type="q45:ArrayOfApiCampaign" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSentCampaignsWithActivitySinceDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSentCampaignsWithActivitySinceDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://apiconnector.com" minOccurs="0" name="GetSentCampaignsWithActivitySinceDateResult" nillable="true" type="q46:ArrayOfApiCampaign" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCampaign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://apiconnector.com" minOccurs="0" name="apiCampaign" nillable="true" type="q47:ApiCampaign" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCampaignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://apiconnector.com" minOccurs="0" name="CreateCampaignResult" nillable="true" type="q48:ApiCampaign" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCampaign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://apiconnector.com" minOccurs="0" name="apiCampaign" nillable="true" type="q49:ApiCampaign" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCampaignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://apiconnector.com" minOccurs="0" name="UpdateCampaignResult" nillable="true" type="q50:ApiCampaign" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CopyCampaign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CopyCampaignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://apiconnector.com" minOccurs="0" name="CopyCampaignResult" nillable="true" type="q51:ApiCampaign" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendCampaign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://apiconnector.com" minOccurs="0" name="apiCampaignSend" nillable="true" type="q52:ApiCampaignSend" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendCampaignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://apiconnector.com" minOccurs="0" name="SendCampaignResult" nillable="true" type="q53:ApiCampaignSend" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignSendProgress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="sendId" type="q54:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignSendProgressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://apiconnector.com" minOccurs="0" name="GetCampaignSendProgressResult" nillable="true" type="q55:ApiCampaignSend" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignSummary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignSummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://apiconnector.com" minOccurs="0" name="GetCampaignSummaryResult" nillable="true" type="q56:ApiCampaignSummary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignContactActivity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element minOccurs="0" name="contactId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignContactActivityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://apiconnector.com" minOccurs="0" name="GetCampaignContactActivityResult" nillable="true" type="q57:ApiCampaignContactSummary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignActivities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignActivitiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://apiconnector.com" minOccurs="0" name="GetCampaignActivitiesResult" nillable="true" type="q58:ArrayOfApiCampaignContactSummary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignActivitiesSinceDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignActivitiesSinceDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://apiconnector.com" minOccurs="0" name="GetCampaignActivitiesSinceDateResult" nillable="true" type="q59:ArrayOfApiCampaignContactSummary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignClicks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignClicksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://apiconnector.com" minOccurs="0" name="GetCampaignClicksResult" nillable="true" type="q60:ArrayOfApiCampaignContactClick" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignContactClicks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element minOccurs="0" name="contactId" type="xs:int" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignContactClicksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://apiconnector.com" minOccurs="0" name="GetCampaignContactClicksResult" nillable="true" type="q61:ArrayOfApiCampaignContactClick" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignOpens">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignOpensResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://apiconnector.com" minOccurs="0" name="GetCampaignOpensResult" nillable="true" type="q62:ArrayOfApiCampaignContactOpen" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignContactOpens">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element minOccurs="0" name="contactId" type="xs:int" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignContactOpensResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://apiconnector.com" minOccurs="0" name="GetCampaignContactOpensResult" nillable="true" type="q63:ArrayOfApiCampaignContactOpen" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignPageViewsSinceDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignPageViewsSinceDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://apiconnector.com" minOccurs="0" name="GetCampaignPageViewsSinceDateResult" nillable="true" type="q64:ArrayOfApiCampaignContactPageView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignContactPageViews">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element minOccurs="0" name="contactId" type="xs:int" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignContactPageViewsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://apiconnector.com" minOccurs="0" name="GetCampaignContactPageViewsResult" nillable="true" type="q65:ArrayOfApiCampaignContactPageView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignContactReplies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element minOccurs="0" name="contactId" type="xs:int" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignContactRepliesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://apiconnector.com" minOccurs="0" name="GetCampaignContactRepliesResult" nillable="true" type="q66:ArrayOfApiCampaignContactReply" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignSocialBookmarkViews">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignSocialBookmarkViewsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://apiconnector.com" minOccurs="0" name="GetCampaignSocialBookmarkViewsResult" nillable="true" type="q67:ArrayOfApiCampaignContactSocialBookmarkView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignContactSocialBookmarkViews">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element minOccurs="0" name="contactId" type="xs:int" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignContactSocialBookmarkViewsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://apiconnector.com" minOccurs="0" name="GetCampaignContactSocialBookmarkViewsResult" nillable="true" type="q68:ArrayOfApiCampaignContactSocialBookmarkView" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignRoiDetailsSinceDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignRoiDetailsSinceDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://apiconnector.com" minOccurs="0" name="GetCampaignRoiDetailsSinceDateResult" nillable="true" type="q69:ArrayOfApiCampaignContactRoiDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignContactRoiDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element minOccurs="0" name="contactId" type="xs:int" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignContactRoiDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://apiconnector.com" minOccurs="0" name="GetCampaignContactRoiDetailsResult" nillable="true" type="q70:ArrayOfApiCampaignContactRoiDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignHardBouncingContacts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element minOccurs="0" name="withFullData" type="xs:boolean" />
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignHardBouncingContactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://apiconnector.com" minOccurs="0" name="GetCampaignHardBouncingContactsResult" nillable="true" type="q71:ArrayOfApiContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocuments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="parentFolderId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://apiconnector.com" minOccurs="0" name="GetDocumentsResult" nillable="true" type="q72:ArrayOfApiDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentFolders">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentFoldersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://apiconnector.com" minOccurs="0" name="GetDocumentFoldersResult" nillable="true" type="q73:ArrayOfApiDocumentFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignAttachments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignAttachmentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://apiconnector.com" minOccurs="0" name="GetCampaignAttachmentsResult" nillable="true" type="q74:ArrayOfApiDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDocumentFolder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="folderId" type="xs:int" />
+        <xs:element xmlns:q75="http://apiconnector.com" minOccurs="0" name="folder" nillable="true" type="q75:ApiDocumentFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDocumentFolderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://apiconnector.com" minOccurs="0" name="CreateDocumentFolderResult" nillable="true" type="q76:ApiDocumentFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="folderId" type="xs:int" />
+        <xs:element minOccurs="0" name="filename" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="data" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://apiconnector.com" minOccurs="0" name="UploadDocumentResult" nillable="true" type="q77:ApiDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AttachDocumentToCampaign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element xmlns:q78="http://apiconnector.com" minOccurs="0" name="document" nillable="true" type="q78:ApiDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AttachDocumentToCampaignResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DetachDocumentFromCampaign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campaignId" type="xs:int" />
+        <xs:element minOccurs="0" name="documentId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DetachDocumentFromCampaignResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomFromAddresses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomFromAddressesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://apiconnector.com" minOccurs="0" name="GetCustomFromAddressesResult" nillable="true" type="q79:ArrayOfApiCampaignFromAddress" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendSingleSmsMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="telephoneNumber" nillable="true" type="xs:string" />
+        <xs:element xmlns:q80="http://apiconnector.com" minOccurs="0" name="sms" nillable="true" type="q80:ApiSms" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendSingleSmsMessageResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTemplate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://apiconnector.com" minOccurs="0" name="template" nillable="true" type="q81:ApiTemplate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTemplateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://apiconnector.com" minOccurs="0" name="CreateTemplateResult" nillable="true" type="q82:ApiTemplate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTemplate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://apiconnector.com" minOccurs="0" name="template" nillable="true" type="q83:ApiTemplate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTemplateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://apiconnector.com" minOccurs="0" name="UpdateTemplateResult" nillable="true" type="q84:ApiTemplate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplateById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="templateId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplateByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://apiconnector.com" minOccurs="0" name="GetTemplateByIdResult" nillable="true" type="q85:ApiTemplate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="select" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://apiconnector.com" minOccurs="0" name="GetTemplatesResult" nillable="true" type="q86:ArrayOfApiTemplate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDataField">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://apiconnector.com" minOccurs="0" name="dataField" nillable="true" type="q87:ApiDataField" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDataFieldResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://apiconnector.com" minOccurs="0" name="CreateDataFieldResult" nillable="true" type="q88:ApiDataField" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDataField">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fieldName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDataFieldResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://apiconnector.com" minOccurs="0" name="DeleteDataFieldResult" nillable="true" type="q89:ApiDependencyResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataFields">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataFieldsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://apiconnector.com" minOccurs="0" name="GetDataFieldsResult" nillable="true" type="q90:ArrayOfApiDataField" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentAccountInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentAccountInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://apiconnector.com" minOccurs="0" name="GetCurrentAccountInfoResult" nillable="true" type="q91:ApiAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServerTime">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServerTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetServerTimeResult" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTransactionalData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dataCollection" nillable="true" type="xs:string" />
+        <xs:element xmlns:q92="http://apiconnector.com" minOccurs="0" name="transactionalData" nillable="true" type="q92:ApiTransactionalData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTransactionalDataResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportTransactionalData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dataCollection" nillable="true" type="xs:string" />
+        <xs:element xmlns:q93="http://apiconnector.com" minOccurs="0" name="transactionalData" nillable="true" type="q93:ArrayOfApiTransactionalData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportTransactionalDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ImportTransactionalDataResult" type="q94:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransactionalDataProgress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="importId" type="q95:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransactionalDataProgressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://apiconnector.com" minOccurs="0" name="GetTransactionalDataProgressResult" type="q96:ApiTransactionalDataImportStatuses" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransactionalDataImportReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="importId" type="q97:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransactionalDataImportReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://apiconnector.com" minOccurs="0" name="GetTransactionalDataImportReportResult" nillable="true" type="q98:ApiTransactionalDataImportReport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTransactionalDataByKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dataCollection" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTransactionalDataByKeyResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTransactionalDataByContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dataCollection" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="contactIdentifier" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTransactionalDataByContactResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransactionalDataByKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dataCollection" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransactionalDataByKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://apiconnector.com" minOccurs="0" name="GetTransactionalDataByKeyResult" nillable="true" type="q99:ApiTransactionalData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransactionalDataByContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dataCollection" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="contactIdentifier" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransactionalDataByContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://apiconnector.com" minOccurs="0" name="GetTransactionalDataByContactResult" nillable="true" type="q100:ArrayOfApiTransactionalData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReplaceTransactionalDataByKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dataCollection" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="json" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReplaceTransactionalDataByKeyResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
