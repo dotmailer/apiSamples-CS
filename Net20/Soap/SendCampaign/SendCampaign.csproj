@@ -75,18 +75,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\dotMailer\api.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web References\dotMailer\api0.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web References\dotMailer\api1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web References\dotMailer\api2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Web References\dotMailer\ApiAccount.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -133,9 +121,6 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\dotMailer\ApiContactImportReport.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\dotMailer\ApiContactStatuses.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\dotMailer\ApiContactSuppression.datasource">
