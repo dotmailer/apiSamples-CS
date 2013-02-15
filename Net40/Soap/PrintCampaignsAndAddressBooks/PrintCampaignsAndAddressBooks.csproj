@@ -50,18 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Service References\ApiServiceReference\Api.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiServiceReference\Api1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiServiceReference\Api3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiServiceReference\Api4.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ApiServiceReference\ApiService.wsdl" />
   </ItemGroup>
   <ItemGroup>
@@ -123,9 +111,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ApiServiceReference\dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContactImportReport.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ApiServiceReference\dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContactStatuses.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ApiServiceReference\dotMailer.PrintCampaignsAndAddressBooks.ApiServiceReference.ApiContactSuppression.datasource">

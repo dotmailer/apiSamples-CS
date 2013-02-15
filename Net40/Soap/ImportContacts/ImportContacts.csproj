@@ -52,18 +52,6 @@
     <None Include="Contacts.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Service References\ApiServiceReference\Api.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiServiceReference\Api1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiServiceReference\Api3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiServiceReference\Api4.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ApiServiceReference\ApiService.wsdl" />
     <None Include="Service References\ApiServiceReference\dotMailer.ImportContacts.ApiServiceReference.ApiAccount.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -111,9 +99,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ApiServiceReference\dotMailer.ImportContacts.ApiServiceReference.ApiContactImportReport.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ApiServiceReference\dotMailer.ImportContacts.ApiServiceReference.ApiContactStatuses.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ApiServiceReference\dotMailer.ImportContacts.ApiServiceReference.ApiContactSuppression.datasource">

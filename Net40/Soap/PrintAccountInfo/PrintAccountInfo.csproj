@@ -51,18 +51,6 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ApiServiceReference\Api.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiServiceReference\Api1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiServiceReference\Api3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ApiServiceReference\Api4.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ApiServiceReference\ApiService.wsdl" />
     <None Include="Service References\ApiServiceReference\dotMailer.PrintAccountInfo.ApiServiceReference.ApiAccount.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -110,9 +98,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ApiServiceReference\dotMailer.PrintAccountInfo.ApiServiceReference.ApiContactImportReport.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ApiServiceReference\dotMailer.PrintAccountInfo.ApiServiceReference.ApiContactStatuses.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ApiServiceReference\dotMailer.PrintAccountInfo.ApiServiceReference.ApiContactSuppression.datasource">
