@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://apiconnector.com/v2" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AccountsApiService" targetNamespace="http://apiconnector.com/v2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="Secure_AccountsApiService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:BasicAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://apiconnector.com/v2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://apiconnector.com" />
+      <xs:element name="CreateAccount">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://apiconnector.com" minOccurs="1" name="apiAccount" nillable="true" type="q1:ApiAccount" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateAccountResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://apiconnector.com" minOccurs="0" name="CreateAccountResult" nillable="true" type="q2:ApiAccount" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateApiUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="accountId" type="xs:int" />
+            <xs:element xmlns:q3="http://apiconnector.com" minOccurs="1" name="apiUser" nillable="true" type="q3:ApiUser" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateApiUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://apiconnector.com" minOccurs="0" name="CreateApiUserResult" nillable="true" type="q4:ApiUser" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateManagedUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="accountId" type="xs:int" />
+            <xs:element xmlns:q5="http://apiconnector.com" minOccurs="1" name="apiManagedUser" nillable="true" type="q5:ApiManagedUser" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateManagedUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://apiconnector.com" minOccurs="0" name="CreateManagedUserResult" nillable="true" type="q6:ApiManagedUser" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateOAuthToken">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="accountId" type="xs:int" />
+            <xs:element xmlns:q7="http://apiconnector.com" minOccurs="1" name="apiOAuthToken" nillable="true" type="q7:ApiOAuthToken" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateOAuthTokenResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://apiconnector.com" minOccurs="0" name="CreateOAuthTokenResult" nillable="true" type="q8:ApiOAuthToken" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateTheme">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="accountId" type="xs:int" />
+            <xs:element xmlns:q9="http://apiconnector.com" minOccurs="1" name="apiTheme" nillable="true" type="q9:ApiTheme" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateThemeResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://apiconnector.com" elementFormDefault="qualified" targetNamespace="http://apiconnector.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xs:complexType name="ApiAccount">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element name="Properties" nillable="true" type="tns:ArrayOfApiAccountProperty" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ApiAccount" nillable="true" type="tns:ApiAccount" />
+      <xs:complexType name="ArrayOfApiAccountProperty">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiAccountProperty" nillable="true" type="tns:ApiAccountProperty" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfApiAccountProperty" nillable="true" type="tns:ArrayOfApiAccountProperty" />
+      <xs:complexType name="ApiAccountProperty">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ApiAccountProperty" nillable="true" type="tns:ApiAccountProperty" />
+      <xs:complexType name="ApiUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element name="Password" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ApiUser" nillable="true" type="tns:ApiUser" />
+      <xs:complexType name="ApiManagedUser">
+        <xs:sequence>
+          <xs:element name="Email" nillable="true" type="xs:string" />
+          <xs:element name="Password" nillable="true" type="xs:string" />
+          <xs:element name="Permissions" nillable="true" type="tns:ArrayOfApiPermissionTypes" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MobileNumber" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ApiManagedUser" nillable="true" type="tns:ApiManagedUser" />
+      <xs:complexType name="ArrayOfApiPermissionTypes">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ApiPermissionTypes" type="tns:ApiPermissionTypes" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfApiPermissionTypes" nillable="true" type="tns:ArrayOfApiPermissionTypes" />
+      <xs:simpleType name="ApiPermissionTypes">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="NotAvailableInThisVersion">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ContactExporter">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">74</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Contacts">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="EditCampaigns">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Programs">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">93</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Reporter">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ReportDrillDown">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">73</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Sender">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="TemplateAdmin">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ViewAccountInvoices">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">70</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="ApiPermissionTypes" nillable="true" type="tns:ApiPermissionTypes" />
+      <xs:complexType name="ApiOAuthToken">
+        <xs:sequence>
+          <xs:element name="RedirectUri" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SecretKey" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ApiOAuthToken" nillable="true" type="tns:ApiOAuthToken" />
+      <xs:complexType name="ApiTheme">
+        <xs:sequence>
+          <xs:element name="PrimaryColor" nillable="true" type="xs:string" />
+          <xs:element name="SecondaryColor" nillable="true" type="xs:string" />
+          <xs:element name="HyperlinkColor" nillable="true" type="xs:string" />
+          <xs:element name="ButtonColor" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ApiTheme" nillable="true" type="tns:ApiTheme" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="AccountsApiService_CreateAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAccount" />
+  </wsdl:message>
+  <wsdl:message name="AccountsApiService_CreateAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="AccountsApiService_CreateApiUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateApiUser" />
+  </wsdl:message>
+  <wsdl:message name="AccountsApiService_CreateApiUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateApiUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AccountsApiService_CreateManagedUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateManagedUser" />
+  </wsdl:message>
+  <wsdl:message name="AccountsApiService_CreateManagedUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateManagedUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AccountsApiService_CreateOAuthToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOAuthToken" />
+  </wsdl:message>
+  <wsdl:message name="AccountsApiService_CreateOAuthToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOAuthTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="AccountsApiService_UpdateTheme_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTheme" />
+  </wsdl:message>
+  <wsdl:message name="AccountsApiService_UpdateTheme_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateThemeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AccountsApiService">
+    <wsdl:documentation>
+      <summary>AccountsApiServiceDescription</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="CreateAccount">
+      <wsdl:documentation>
+        <summary>Creates an account. The ID of the newly returned account will be returned as the result of this call. There are some mandatory, and some optional fields - missing mandatory fields will cause error code to be returned.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/AccountsApiService/CreateAccount" message="tns:AccountsApiService_CreateAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/AccountsApiService/CreateAccountResponse" message="tns:AccountsApiService_CreateAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateApiUser">
+      <wsdl:documentation>
+        <summary>Creates an API user for a given account ID. This method may only be called on an account with 0 API users. Subsequent calls will not be permitted. The username of the created user will be returned as the result of this call.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/AccountsApiService/CreateApiUser" message="tns:AccountsApiService_CreateApiUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/AccountsApiService/CreateApiUserResponse" message="tns:AccountsApiService_CreateApiUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateManagedUser">
+      <wsdl:documentation>
+        <summary>Creates Managed user for a given account id.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/AccountsApiService/CreateManagedUser" message="tns:AccountsApiService_CreateManagedUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/AccountsApiService/CreateManagedUserResponse" message="tns:AccountsApiService_CreateManagedUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOAuthToken">
+      <wsdl:documentation>
+        <summary>Adds an OAuth token to an account.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/AccountsApiService/CreateOAuthToken" message="tns:AccountsApiService_CreateOAuthToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/AccountsApiService/CreateOAuthTokenResponse" message="tns:AccountsApiService_CreateOAuthToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTheme">
+      <wsdl:documentation>
+        <summary>Changes a theme for an account.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://apiconnector.com/v2/AccountsApiService/UpdateTheme" message="tns:AccountsApiService_UpdateTheme_InputMessage" />
+      <wsdl:output wsaw:Action="http://apiconnector.com/v2/AccountsApiService/UpdateThemeResponse" message="tns:AccountsApiService_UpdateTheme_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Secure_AccountsApiService" type="tns:AccountsApiService">
+    <wsp:PolicyReference URI="#Secure_AccountsApiService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateAccount">
+      <soap:operation soapAction="http://apiconnector.com/v2/AccountsApiService/CreateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateApiUser">
+      <soap:operation soapAction="http://apiconnector.com/v2/AccountsApiService/CreateApiUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateManagedUser">
+      <soap:operation soapAction="http://apiconnector.com/v2/AccountsApiService/CreateManagedUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOAuthToken">
+      <soap:operation soapAction="http://apiconnector.com/v2/AccountsApiService/CreateOAuthToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTheme">
+      <soap:operation soapAction="http://apiconnector.com/v2/AccountsApiService/UpdateTheme" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountsApiService">
+    <wsdl:port name="Secure_AccountsApiService" binding="tns:Secure_AccountsApiService">
+      <soap:address location="https://api.dotmailer.com/v2/AccountsApi.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
